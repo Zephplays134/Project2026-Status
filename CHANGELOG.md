@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0] — 2026-10-28 — Full modern redesign
+
+### Changed
+- **New "aurora glass" design, written from scratch.** Animated aurora gradient backdrop with a subtle film-grain texture, frosted glass cards and header (backdrop blur), gradient headline and stat numbers, and a refined light theme. Every section restyled: bento "At a glance" grid, glowing stage tracker, rail-and-card updates timeline, glass filter chips with counts, accordion FAQ with animated markers, glass toast and back-to-top.
+- **Typography upgrade.** Inter for text and Space Grotesk for display headings (loaded from Google Fonts with system fallbacks), fluid `clamp()` sizing, tighter heading tracking.
+- **Motion pass.** Scroll progress bar at the top, compact header once you scroll, hover lift and sheen-sweep on buttons, pulsing live dots, shimmering gradient text, drifting waves and aurora (in `extras.js`). Everything respects `prefers-reduced-motion`.
+- Version bumped to 2.0.0 in the page, `data/status.json`, this changelog and the README.
+
+### Not changed
+- The three answers (YES / YES / NOT CONFIRMED), the progress stages, every fact and source, the data files, `scripts/check.mjs`, the GitHub workflow, and all page behavior: search, filters, sparkline, memory, live checks and copy summary all work exactly as before. The auto-check bot never touches HTML, CSS or JS, so it keeps running untouched.
+
 ## [1.3.0] — 2026-10-28 — Revamp
 
 ### Changed
