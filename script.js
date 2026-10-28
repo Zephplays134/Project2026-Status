@@ -1,6 +1,10 @@
-/* Project 2026 Status v1.2 — renders from data/status.json, remembers each visitor in localStorage,
+/* Project 2026 Status v1.3 — renders from data/status.json, remembers each visitor in localStorage,
    and re-checks Roblox automatically (every 2 minutes while the tab is open) next to the GitHub
    Actions bot's results in data/checks.json.
+   v1.3 "revamp" adds: answer cards with icons, the "At a glance" dashboard (progress, count-up stats,
+   a visits sparkline drawn from checks.json "history" plus this browser's own readings), search over
+   updates + FAQ ("/" focuses it), FAQ accordion, collapsible sources, "Copy summary" and entrance
+   animations (skipped when the visitor prefers reduced motion).
    FALLBACK below is a copy of data/status.json so the page also works opened from disk (file://),
    where browsers block fetch(). Keep the two in sync by hand; "Auto-detected" entries the bot
    adds live only in data/status.json. */
@@ -8,11 +12,11 @@
   "use strict";
 
   var FALLBACK = {
-    "version": "1.2.0",
+    "version": "1.3.0",
     "project": "Project 2026",
     "studio": "Tableboard Studios",
     "owner": "Zephplays134",
-    "lastUpdated": "2026-10-28T12:45:00Z",
+    "lastUpdated": "2026-10-28T16:15:00Z",
     "questions": [
       {
         "id": "making",
@@ -86,6 +90,13 @@
       }
     ],
     "updates": [
+      {
+        "date": "2026-10-28",
+        "added": "2026-10-28T16:15:00Z",
+        "type": "status",
+        "title": "Tracker v1.3: revamp",
+        "text": "New look for the tracker: a cruise-ship themed design with the three answers as big cards at the top, an “At a glance” dashboard (progress, live stats with a visits sparkline, latest auto-check), search across the updates and FAQ (press /), a “Copy summary” button and link previews when the page is shared. No facts changed: the answers are still YES, YES, NOT CONFIRMED."
+      },
       {
         "date": "2026-10-28",
         "added": "2026-10-28T12:45:00Z",
@@ -259,15 +270,15 @@
       "testUniverseId": 9312735138,
       "buildUniverseId": 10764157170,
       "readDate": "2026-10-28",
-      "visits": 6263865,
-      "favorites": 35378,
-      "playing": 50,
+      "visits": 6265190,
+      "favorites": 35380,
+      "playing": 47,
       "upVotes": 9626,
       "downVotes": 2797,
       "maxPlayers": 15,
       "created": "2024-04-21",
       "updated": "2026-10-26",
-      "groupMembers": 46453,
+      "groupMembers": 46456,
       "testUpdated": "2026-10-20",
       "buildUpdated": "2026-10-20"
     },
@@ -399,7 +410,7 @@
   var STORE_KEY = "p26status";        // the one localStorage key this site uses (also read by the inline theme script)
   var DELTA_KEYS = ["visits", "favorites", "groupMembers"];
 
-  var state = { data: null, filter: "all", expanded: false, mem: {}, storageOk: true, newCount: 0, live: null };
+  var state = { data: null, filter: "all", expanded: false, mem: {}, storageOk: true, newCount: 0, live: null, query: "", faqWasSearch: false, liveStats: null };
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   var $ = function (id) { return document.getElementById(id); };
 
@@ -435,6 +446,17 @@
     (children || []).forEach(function (c) { if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
     return node;
   }
+  function icon(name, cls) {
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("class", cls || "ico");
+    svg.setAttribute("aria-hidden", "true");
+    var use = document.createElementNS(NS, "use");
+    use.setAttribute("href", "#i-" + name);
+    svg.appendChild(use);
+    return svg;
+  }
+  var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
   function sourceById(id) { return (state.data.sources || []).filter(function (s) { return s.id === id; })[0]; }
   function kindClass(kind) { return String(kind || "").toLowerCase().replace(/[^a-z]+/g, "-"); }
   function shortName(s) { return s.name.split(" — ")[0]; }
@@ -482,6 +504,7 @@
     renderUpdates();
     renderDeltas();
     renderMemPanel();
+    renderSpark();
     toast("Saved data cleared");
   }
   function renderMemPanel() {
@@ -494,6 +517,7 @@
     if (m.lastVisit) rows.push("This visit started: " + fmtDate(m.lastVisit) + " (" + relTime(m.lastVisit) + ")");
     if (m.prevVisit) rows.push("Your previous visit: " + fmtDate(m.prevVisit) + " (" + relTime(m.prevVisit) + ")");
     if (m.snap) rows.push("Stats snapshot: " + fmtNum(m.snap.visits) + " visits, " + fmtNum(m.snap.favorites) + " favorites (" + relTime(m.snap.at) + ")");
+    if (m.hist && m.hist.length) rows.push("Visit-count readings for the sparkline: " + m.hist.length + " (since " + fmtDate(m.hist[0].at) + ")");
     if (m.watch) rows.push("Auto-check snapshot: Testing Server last updated " + fmtDate(m.watch.testUpdated) + ", " + (m.watch.devGames || []).length + " dev-group places (" + relTime(m.watch.at) + ")");
     if (!rows.length) rows.push("Nothing saved yet.");
     rows.forEach(function (r) { list.appendChild(el("li", { text: r })); });
@@ -561,8 +585,11 @@
         cites.appendChild(el("a", { href: s.url, target: "_blank", rel: "noopener", text: shortName(s) }));
       });
       grid.appendChild(el("article", { className: "answer " + q.tone, id: "q-" + q.id }, [
-        el("p", { className: "num-q", text: "Question " + (i + 1) }),
-        el("h3", { className: "q", text: q.question }),
+        el("div", { className: "a-top" }, [
+          el("span", { className: "a-ico" }, [icon(q.tone === "yes" ? "check" : "question")]),
+          el("p", { className: "num-q", text: "Question " + (i + 1) })
+        ]),
+        el("h2", { className: "q", text: q.question }),
         el("p", { className: "badge", text: q.answer }),
         el("p", { className: "basis", text: q.basis }),
         el("p", { className: "detail", text: q.detail }),
@@ -587,6 +614,20 @@
       if (s.state === "current") li.setAttribute("aria-current", "step");
       list.appendChild(li);
     });
+    renderGlanceProgress();
+  }
+  function renderGlanceProgress() {
+    var stages = state.data.stages || [], bar = $("g-pbar");
+    if (!stages.length || !bar) return;
+    var idx = -1;
+    stages.forEach(function (s, i) { if (s.state === "current") idx = i; });
+    var cur = stages[idx] || stages[0];
+    $("g-stage").textContent = cur.label;
+    var unconf = stages.filter(function (s) { return s.state === "unconfirmed"; }).map(function (s) { return s.label.toLowerCase(); });
+    $("g-stage-sub").textContent = "Stage " + (idx + 1) + " of " + stages.length + (unconf.length ? " · " + unconf.join(", ") + " not confirmed" : "");
+    bar.textContent = "";
+    stages.forEach(function (s) { bar.appendChild(el("span", { className: "seg " + s.state, title: s.label })); });
+    bar.setAttribute("aria-label", "Stage " + (idx + 1) + " of " + stages.length + ": " + cur.label);
   }
 
   /* ---------- updates timeline ---------- */
@@ -600,18 +641,32 @@
     var items = state.data.updates.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
     state.newCount = items.filter(isNew).length;
     $("chip-new").hidden = state.newCount === 0;
-    $("chip-new").textContent = "New for you (" + state.newCount + ")";
+    $("chip-new").textContent = "New for you";
     $("chip-auto").hidden = !items.some(function (u) { return u.auto; });
-    var matching = items.filter(function (u) {
-      if (state.filter === "all") return true;
-      if (state.filter === "new") return isNew(u);
-      if (state.filter === "auto") return !!u.auto;
-      return u.type === state.filter;
+    var q = state.query;
+    var searched = q ? items.filter(function (u) { return matchQ(u.title + " " + u.text + " " + fmtDate(u.date) + " " + u.type, q); }) : items;
+    var inCat = function (u, f) {
+      if (f === "all") return true;
+      if (f === "new") return isNew(u);
+      if (f === "auto") return !!u.auto;
+      return u.type === f;
+    };
+    // counts on the filter chips (they follow the search, so you can see where matches are)
+    Array.prototype.forEach.call(document.querySelectorAll("#filters .chip"), function (c) {
+      var f = c.getAttribute("data-filter"), n = searched.filter(function (u) { return inCat(u, f); }).length;
+      var cnt = c.querySelector(".cnt");
+      if (!cnt) { cnt = el("span", { className: "cnt" }); c.appendChild(cnt); }
+      cnt.textContent = String(n);
     });
+    var matching = searched.filter(function (u) { return inCat(u, state.filter); });
+    $("updates-count").textContent = items.length + " dated updates";
+    if ($("g-updates")) $("g-updates").textContent = String(items.length);
+    var TYPE_ICON = { status: "flag", official: "shield", evidence: "doc", game: "ship" };
     matching.forEach(function (u, i) {
       var src = u.source && sourceById(u.source);
       var fresh = isNew(u);
       var li = el("li", { className: "entry" + (fresh ? " is-new" : "") + (u.auto ? " is-auto" : ""), "data-type": u.type }, [
+        el("span", { className: "t-mark", "aria-hidden": "true" }, [icon(u.auto ? "bolt" : (TYPE_ICON[u.type] || "flag"))]),
         el("div", { className: "meta" }, [
           fresh ? el("span", { className: "new-badge", text: "NEW SINCE YOUR LAST VISIT" }) : null,
           el("time", { datetime: u.date, text: fmtDate(u.date) }),
@@ -619,15 +674,15 @@
           u.auto ? el("span", { className: "tag auto", text: "Auto-detected" }) : null,
           el("span", { text: relTime(u.date) })
         ]),
-        el("h3", { text: u.title }),
-        el("p", { text: u.text }),
+        el("h3", null, [hl(u.title, q)]),
+        el("p", null, [hl(u.text, q)]),
         src ? el("a", { className: "src", href: src.url, target: "_blank", rel: "noopener", text: "Source: " + shortName(src) + " ↗" }) : null
       ]);
-      if (!state.expanded && i >= SHOW_FIRST) li.classList.add("is-hidden");
+      if (!state.expanded && !q && i >= SHOW_FIRST) li.classList.add("is-hidden");
       list.appendChild(li);
     });
-    if (!matching.length) list.appendChild(el("li", { className: "empty", text: "No updates in this category yet." }));
-    var hiddenCount = Math.max(0, matching.length - SHOW_FIRST);
+    if (!matching.length) list.appendChild(el("li", { className: "empty", text: q ? "No updates match “" + q + "”" + (state.filter !== "all" ? " in this category" : "") + "." : "No updates in this category yet." }));
+    var hiddenCount = q ? 0 : Math.max(0, matching.length - SHOW_FIRST);
     btn.hidden = hiddenCount === 0;
     btn.textContent = state.expanded ? "Show fewer updates" : "Show " + hiddenCount + " older update" + (hiddenCount === 1 ? "" : "s");
     btn.setAttribute("aria-expanded", String(state.expanded));
@@ -651,6 +706,211 @@
       });
     });
     $("toggle-more").addEventListener("click", function () { state.expanded = !state.expanded; renderUpdates(); });
+  }
+
+  /* ---------- search: updates + FAQ (v1.3) ---------- */
+  function norm(s) { return String(s || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[“”]/g, '"').replace(/[‘’]/g, "'"); }
+  function matchQ(text, q) {
+    var t = norm(text);
+    return norm(q).split(/\s+/).filter(Boolean).every(function (w) { return t.indexOf(w) >= 0; });
+  }
+  // returns a fragment with <mark> around each search word (text nodes only, no innerHTML)
+  function hl(text, q) {
+    var frag = document.createDocumentFragment();
+    var words = norm(q).split(/\s+/).filter(function (w) { return w.length > 0; });
+    if (!words.length) { frag.appendChild(document.createTextNode(text)); return frag; }
+    var low = norm(text), marks = [];
+    words.forEach(function (w) {
+      var i = low.indexOf(w);
+      while (i >= 0) { marks.push([i, i + w.length]); i = low.indexOf(w, i + w.length); }
+    });
+    if (low.length !== text.length) { frag.appendChild(document.createTextNode(text)); return frag; }
+    marks.sort(function (a, b) { return a[0] - b[0]; });
+    var pos = 0;
+    marks.forEach(function (m) {
+      if (m[0] < pos) return;
+      if (m[0] > pos) frag.appendChild(document.createTextNode(text.slice(pos, m[0])));
+      frag.appendChild(el("mark", { text: text.slice(m[0], m[1]) }));
+      pos = m[1];
+    });
+    if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+    return frag;
+  }
+  function filterFaq() {
+    var q = state.query, shown = 0;
+    var items = document.querySelectorAll("#faq-list details");
+    Array.prototype.forEach.call(items, function (d) {
+      var hit = !q || matchQ(d.textContent, q);
+      d.classList.toggle("no-match", !hit);
+      if (q) d.open = hit;
+      else if (state.faqWasSearch) d.open = false;
+      if (hit) shown++;
+    });
+    state.faqWasSearch = !!q;
+    var note = $("faq-note");
+    note.hidden = !q;
+    if (q) note.textContent = shown ? shown + " of " + items.length + " answers match “" + q + "”." : "No FAQ answers match “" + q + "”.";
+    return shown;
+  }
+  function runSearch() {
+    renderUpdates();
+    var faqHits = filterFaq();
+    var box = $("search-status"), q = state.query;
+    box.textContent = "";
+    if (!q) { box.hidden = true; return; }
+    var n = document.querySelectorAll("#timeline .entry").length;
+    box.appendChild(document.createTextNode(n + " update" + (n === 1 ? "" : "s") + " and " + faqHits + " FAQ answer" + (faqHits === 1 ? "" : "s") + " match “" + q + "”. "));
+    if (faqHits) box.appendChild(el("a", { href: "#faq", text: "See FAQ matches ↓" }));
+    box.hidden = false;
+  }
+  function wireSearch() {
+    var input = $("q"), timer;
+    input.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { state.query = input.value.trim(); runSearch(); }, 120);
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { input.value = ""; state.query = ""; runSearch(); input.blur(); }
+    });
+    function focusSearch() {
+      $("updates").scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+      setTimeout(function () { input.focus({ preventScroll: true }); }, REDUCED ? 0 : 350);
+    }
+    $("search-btn").addEventListener("click", focusSearch);
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+      var t = e.target, tag = t && t.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (t && t.isContentEditable)) return;
+      e.preventDefault();
+      focusSearch();
+    });
+    // FAQ accordion: opening one closes the others (not while searching, so all matches stay open)
+    Array.prototype.forEach.call(document.querySelectorAll("#faq-list details"), function (d, i, all) {
+      d.addEventListener("toggle", function () {
+        if (!d.open || state.query) return;
+        Array.prototype.forEach.call(all, function (o) { if (o !== d && o.open) o.open = false; });
+      });
+    });
+  }
+
+  /* ---------- copy summary (v1.3) ---------- */
+  function summaryText() {
+    var d = state.data, lines = [];
+    lines.push(d.project + " status (" + d.studio + ") — updated " + fmtDate(d.lastUpdated));
+    d.questions.forEach(function (q) { lines.push("• " + q.question + " " + q.answer + " — " + q.basis); });
+    var cur = (d.stages || []).filter(function (s) { return s.state === "current"; })[0];
+    if (cur) lines.push("Current stage: " + cur.label + ".");
+    var st = state.liveStats || d.stats;
+    if (st && st.visits) lines.push("Cruise Ship Simulator: " + fmtNum(st.visits) + " visits" + (state.liveStats ? " (live)" : " (read " + fmtDate(d.stats.readDate) + ")") + ".");
+    lines.push(location.protocol === "file:" ? "https://zephplays134.github.io/Project2026-Status/" : location.href.split("#")[0]);
+    return lines.join("\n");
+  }
+  function wireCopy() {
+    $("copy-btn").addEventListener("click", function () {
+      if (!state.data) return;
+      var txt = summaryText();
+      copyText(txt).then(function () { toast("Summary copied: " + state.data.questions.map(function (q) { return q.answer; }).join(" · ")); },
+                         function () { toast("Couldn't copy here. Long-press to select the answers instead.", 3500); });
+    });
+  }
+
+  /* ---------- count-up numbers (v1.3) ---------- */
+  function setCount(key, value) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-count="' + key + '"]'), function (n) {
+      var to = Number(value);
+      if (isNaN(to)) return;
+      var from = n.hasAttribute("data-val") ? Number(n.getAttribute("data-val")) : Math.round(to * 0.92);  // first fill counts up
+      n.setAttribute("data-val", String(to));
+      if (REDUCED || isNaN(from) || from === to) { n.textContent = fmtNum(to); return; }
+      var start = null, dur = Math.abs(to - from) > 1000 ? 1200 : 700;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur), e = 1 - Math.pow(1 - p, 3);
+        n.textContent = fmtNum(Math.round(from + (to - from) * e));
+        if (p < 1 && n.getAttribute("data-val") === String(to)) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ---------- visits sparkline (v1.3) ----------
+     Points: data/checks.json "history" (one per committed bot run) + this browser's own live readings
+     (state.mem.hist, at most one per 10 minutes, last 60). Needs 2+ points to draw. */
+  var HIST_EVERY = 10 * 60 * 1000, HIST_KEEP = 60;
+  function recordHist(visits, iso) {
+    var h = state.mem.hist || (state.mem.hist = []);
+    var last = h[h.length - 1];
+    if (last && toTime(iso) - toTime(last.at) < HIST_EVERY) { last.visits = visits; last.at = iso; }
+    else h.push({ at: iso, visits: visits });
+    if (h.length > HIST_KEEP) h.splice(0, h.length - HIST_KEEP);
+  }
+  function renderSpark() {
+    var svg = $("spark"), note = $("spark-note");
+    if (!svg) return;
+    var pts = [];
+    ((ac.server && ac.server.history) || []).forEach(function (p) { if (typeof p.visits === "number") pts.push({ t: toTime(p.at), v: p.visits, src: "bot" }); });
+    (state.mem.hist || []).forEach(function (p) { if (typeof p.visits === "number") pts.push({ t: toTime(p.at), v: p.visits, src: "you" }); });
+    pts.sort(function (a, b) { return a.t - b.t; });
+    // drop near-duplicates (same minute)
+    pts = pts.filter(function (p, i) { return i === 0 || p.t - pts[i - 1].t > 60000; });
+    svg.textContent = "";
+    if (pts.length < 2) {
+      note.textContent = location.protocol === "file:" ? "The visits sparkline needs the live site." : "The sparkline fills in as the automatic checks record more readings.";
+      return;
+    }
+    var NS = "http://www.w3.org/2000/svg", W = 300, H = 64, pad = 6;
+    var t0 = pts[0].t, t1 = pts[pts.length - 1].t, vmin = Infinity, vmax = -Infinity;
+    pts.forEach(function (p) { vmin = Math.min(vmin, p.v); vmax = Math.max(vmax, p.v); });
+    if (vmax === vmin) { vmax += 1; vmin -= 1; }
+    var x = function (t) { return pad + (t1 === t0 ? 0 : (t - t0) / (t1 - t0)) * (W - 2 * pad); };
+    var y = function (v) { return H - pad - (v - vmin) / (vmax - vmin) * (H - 2 * pad); };
+    var d = pts.map(function (p, i) { return (i ? "L" : "M") + x(p.t).toFixed(1) + " " + y(p.v).toFixed(1); }).join(" ");
+    var mk = function (tag, attrs) { var n = document.createElementNS(NS, tag); Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); }); svg.appendChild(n); return n; };
+    var defs = mk("defs", {}), g = document.createElementNS(NS, "linearGradient");
+    g.setAttribute("id", "spark-fill"); g.setAttribute("x1", "0"); g.setAttribute("y1", "0"); g.setAttribute("x2", "0"); g.setAttribute("y2", "1");
+    [["0", ".35"], ["1", "0"]].forEach(function (s) { var st = document.createElementNS(NS, "stop"); st.setAttribute("offset", s[0]); st.setAttribute("stop-color", "currentColor"); st.setAttribute("stop-opacity", s[1]); g.appendChild(st); });
+    defs.appendChild(g);
+    svg.style.color = "var(--accent)";
+    mk("line", { class: "base", x1: pad, x2: W - pad, y1: H - pad, y2: H - pad });
+    mk("path", { class: "area", d: d + " L" + x(t1).toFixed(1) + " " + (H - pad) + " L" + x(t0).toFixed(1) + " " + (H - pad) + " Z" });
+    mk("path", { class: "line", d: d });
+    var last = pts[pts.length - 1];
+    mk("circle", { class: "pt", cx: x(last.t).toFixed(1), cy: y(last.v).toFixed(1), r: 3.2 });
+    var gain = last.v - pts[0].v;
+    svg.setAttribute("aria-label", "Visits went from " + fmtNum(pts[0].v) + " to " + fmtNum(last.v) + " across " + pts.length + " readings");
+    note.textContent = (gain >= 0 ? "+" : "−") + fmtNum(Math.abs(gain)) + " visits since " + fmtWhen(new Date(t0).toISOString()) + " · " + pts.length + " readings";
+  }
+
+  /* ---------- reveal on scroll (v1.3) ---------- */
+  function wireReveal() {
+    var items = document.querySelectorAll(".reveal");
+    if (REDUCED || !("IntersectionObserver" in window)) { Array.prototype.forEach.call(items, function (n) { n.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.02 });
+    Array.prototype.forEach.call(items, function (n) { io.observe(n); });
+    // anything jumped to by a link shows at once
+    window.addEventListener("hashchange", function () { Array.prototype.forEach.call(items, function (n) { if (n.getBoundingClientRect().top < innerHeight) n.classList.add("in"); }); });
+  }
+
+  /* ---------- sources fold: open it when a "#src-…" citation is followed ---------- */
+  function openSourceFor(hash) {
+    if (!hash || hash.indexOf("#src-") !== 0) return;
+    var fold = $("sources-fold");
+    if (fold && !fold.open) fold.open = true;
+    $("sources").classList.add("in");
+    var t = document.getElementById(hash.slice(1));
+    if (t) setTimeout(function () { t.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "center" }); }, 30);
+  }
+  function wireSourceLinks() {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#src-"]');
+      if (!a) return;
+      e.preventDefault();
+      var hash = a.getAttribute("href");
+      if (history.replaceState) history.replaceState(null, "", hash);
+      openSourceFor(hash);
+    });
   }
 
   /* ---------- welcome line ---------- */
@@ -680,6 +940,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-rel="' + key + '"]'), function (n) { n.textContent = "(" + relTime(iso) + ")"; });
   }
   function renderStats(st, live) {
+    ["visits", "favorites", "playing", "groupMembers"].forEach(function (k) { if (typeof st[k] === "number") setCount(k, st[k]); });
     setStat("visits", fmtNum(st.visits));
     setStat("favorites", fmtNum(st.favorites));
     setStat("playing", fmtNum(st.playing));
@@ -835,7 +1096,9 @@
       if (byId[st.buildUniverseId] && byId[st.buildUniverseId].updated) st.buildUpdated = byId[st.buildUniverseId].updated.slice(0, 10);
       if (res[1] && typeof res[1].memberCount === "number") st.groupMembers = res[1].memberCount;
       renderStats(st, true);
+      state.liveStats = st;
       state.live = { visits: st.visits, favorites: st.favorites, groupMembers: st.groupMembers, at: new Date(now).toISOString() };
+      recordHist(st.visits, state.live.at);
       renderDeltas();
       state.mem.snap = state.live;   // remembered for your next visit
 
@@ -863,7 +1126,7 @@
       state.mem.watch = w;
       state.mem.lastCheck = new Date(now).toISOString();
       saveMem();
-      renderAcBar(); renderSince(); renderAttention(); renderChecks(); schedule();
+      renderAcBar(); renderSince(); renderAttention(); renderChecks(); renderSpark(); schedule();
     });
   }
 
@@ -871,6 +1134,7 @@
   function handleServer(c) {
     var first = !ac.server;
     ac.server = c;
+    renderSpark();
     if (first) { ac.serverBase = c.lastCommittedRun || c.lastRun; renderAttention(); return; }
     var mark = c.lastCommittedRun || c.lastRun;
     if (mark && mark !== ac.serverBase) {
@@ -952,6 +1216,12 @@
       dl.appendChild(el("div", null, [el("dt", { text: r[0] }), el("dd", null, [typeof r[1] === "string" ? document.createTextNode(r[1]) : r[1]])]));
     });
   }
+  // next scheduled bot run: cron "17 */6 * * *" (UTC), shown in the visitor's own time
+  function nextCron() {
+    var d = new Date(), n = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 0, 17));
+    while (n.getTime() <= d.getTime()) n = new Date(n.getTime() + 6 * 3600000);
+    return "≈ " + n.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  }
   function renderChecks() {
     var c = ac.server, offline = !window.fetch || location.protocol === "file:";
     // server card
@@ -979,6 +1249,17 @@
       srv.push(["Latest run on GitHub", "No runs yet"]);
     }
     kvRows($("srv-kv"), srv);
+    var gs = $("g-server");
+    if (gs) {
+      gs.textContent = "";
+      if (c) {
+        var open = (c.attention || []).filter(function (f) { return !f.resolved; }).length;
+        gs.appendChild(el("b", { text: "GitHub bot: " }));
+        gs.appendChild(document.createTextNode("last run " + relTime(c.lastRun) + " · "));
+        gs.appendChild(el("span", { className: c.lastRunOk ? "ok-t" : "bad-t", text: c.lastRunOk ? "OK" : "had errors" }));
+        gs.appendChild(document.createTextNode(" · " + (open ? open + " flag" + (open === 1 ? "" : "s") + " open" : "no flags") + " · next run " + nextCron()));
+      } else gs.textContent = offline ? "GitHub bot results show on the live site." : "GitHub bot: results not loaded yet.";
+    }
     // page card
     var pg = [];
     if (offline) pg.push(["Status", "Off when opened from a file"]);
@@ -1045,7 +1326,8 @@
         el("span", { className: "muted small", text: "read " + fmtDate(s.read) })
       ]));
     });
-    if (location.hash.indexOf("#src-") === 0) { var t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+    $("sources-sum").textContent = "Show all " + state.data.sources.length + " sources";
+    openSourceFor(location.hash);
   }
   function renderStamp() {
     var t = $("last-updated");
@@ -1090,6 +1372,7 @@
     renderSources();
     renderMemPanel();
     renderChecks();
+    renderSpark();
     runCheck(false);
   }
   function boot() {
@@ -1100,6 +1383,11 @@
     wireToTop();
     wireFilters();
     wireNav();
+    wireSearch();
+    wireCopy();
+    wireReveal();
+    wireSourceLinks();
+    $("sources-fold").addEventListener("toggle", function () { $("sources-sum").textContent = ($("sources-fold").open ? "Hide" : "Show all " + ((state.data && state.data.sources.length) || "") ) + " sources"; });
     $("clear-btn").addEventListener("click", clearMem);
     wireAutoCheck();
     if (!window.fetch || location.protocol === "file:") return render(FALLBACK);

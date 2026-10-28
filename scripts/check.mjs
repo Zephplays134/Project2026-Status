@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-/* Project 2026 Status — automatic check (v1.2)
+/* Project 2026 Status — automatic check (v1.2, history added in v1.3)
  *
  * Reads Roblox's public APIs (no login, no secrets), compares what it sees with the last run
  * stored in data/checks.json, and:
  *   - always rewrites data/checks.json (last run, every watched value, what changed),
  *   - appends an "Auto-detected" entry to data/status.json's updates log for each meaningful change,
  *   - refreshes the stats snapshot in data/status.json,
+ *   - keeps a short "history" series in data/checks.json (visits, playing, favorites, members per run),
  *   - raises "attention" flags for big things (a public Project 2026 game, the official listing changing).
  *
  * It NEVER changes the three headline answers, the progress stages or lastUpdated. Those stay
@@ -32,6 +33,7 @@ const FORCE = process.argv.includes("--force") || process.env.FORCE_COMMIT === "
 const HEARTBEAT_HOURS = 24;
 const KEEP_CHANGES = 60;
 const KEEP_RUNS = 40;
+const KEEP_HISTORY = 120;      // points in checks.json "history" (the page draws its visits sparkline from these)
 
 const IDS = {
   mainGroup: 4795028,          // Tableboard Studios
@@ -256,6 +258,16 @@ function compare(prev, cur, now) {
   return { changes, flags };
 }
 
+function histPoint(at, v) {
+  return {
+    at,
+    visits: v.css && v.css.visits,
+    playing: v.css && v.css.playing,
+    favorites: v.css && v.css.favorites,
+    members: v.mainGroup && v.mainGroup.members
+  };
+}
+
 /* ---------------- main ---------------- */
 async function main() {
   const now = new Date().toISOString();
@@ -312,6 +324,13 @@ async function main() {
     founderProjects: merged.founder && merged.founder.projects,
     mainGames: merged.mainGames && merged.mainGames.length, devGames: merged.devGames && merged.devGames.length
   };
+  // v1.3: a small time series for the page's sparkline. One point per run that actually read
+  // Cruise Ship Simulator this time (carried-forward values are never added as a new point).
+  const history = ((checks && Array.isArray(checks.history)) ? checks.history : []).slice();
+  if (!history.length && prevValues && prevValues.css && typeof prevValues.css.visits === "number" && checks.lastRun) {
+    history.push(histPoint(checks.lastRun, prevValues));   // seed from the last stored run
+  }
+  if (values.css && typeof values.css.visits === "number") history.push(histPoint(now, merged));
   const out = {
     schema: 1,
     about: "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
@@ -324,7 +343,8 @@ async function main() {
     changes: changes.map((c) => ({ at: c.at, kind: c.kind, type: c.type, title: c.title, text: c.text, source: c.source }))
       .concat((checks && checks.changes) || []).slice(0, KEEP_CHANGES),
     runs: [run].concat((checks && checks.runs) || []).slice(0, KEEP_RUNS),
-    values: merged
+    values: merged,
+    history: history.slice(-KEEP_HISTORY)
   };
 
   const summary = `${reason}; ${changes.length} change(s), ${flags.length} new flag(s), ${errors.length} error(s)`;

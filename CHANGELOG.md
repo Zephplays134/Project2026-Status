@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.3.0] — 2026-10-28 — Revamp
+
+### Changed
+- **New design.** A cruise-ship / maritime theme: hand-drawn SVG waves and a ship silhouette sailing across the hero (no Roblox or game assets). Refined typography, glassy cards, one spacing scale and new colors for both the dark and light themes. Mobile-first layout checked at 390px and 1440px.
+- **New hero.** The three answers are now big animated cards with icons: ✓ YES (making it), ✓ YES (testing internally, confirmed by the site owner), ? NOT CONFIRMED (finalizing). Same answers, basis, reasoning and sources as before.
+- **Reorganized page.** A sticky top nav with an icon per section; a compact **At a glance** dashboard (progress, live stats, latest auto-check); timeline entries with type markers and filter chips that show counts; the FAQ is an accordion; the sources and the full auto-check log are folded away (a citation link opens the sources at the right entry).
+- Attention flags and the welcome-back note moved into At a glance, next to the live check.
+
+### Added
+- **Visits sparkline** in At a glance, drawn from the new `history` series in `data/checks.json` plus this browser's own readings (saved as `hist`).
+- **Animated count-up** for visits, players, favorites and group members.
+- **Search** over the updates and the FAQ, with highlighted matches. Press **/** to jump to it, **Esc** to clear.
+- **Copy summary** button: copies the three answers, the current stage, the visits count and the link as plain text.
+- **Link previews:** `assets/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` and a 1200×630 `assets/og-image.png`, with Open Graph and Twitter card tags.
+- **Entrance animations** (cards stamp in, sections fade up), all disabled when the device prefers reduced motion.
+- Updates log entry for this release.
+
+### Auto-check
+- `scripts/check.mjs` now also keeps `history` in `data/checks.json` (one point per run that read Cruise Ship Simulator: `at`, `visits`, `playing`, `favorites`, `members`; last 120). Nothing else in the data format changed, and the workflow file is unchanged. Ran locally once to confirm it still works and to add the first new point.
+
+### Not changed
+- The three answers, the progress stages, every fact and source, the memory features and both auto-check layers.
+
 ## [1.2.0] — 2026-10-28
 
 ### Added

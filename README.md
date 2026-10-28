@@ -1,8 +1,8 @@
 # Project 2026 Status
 
-**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 1.2.0
+**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 1.3.0
 
-A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new, and it **checks Roblox automatically**: a GitHub bot every 6 hours, and the open page every 2 minutes.
+A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new, and it **checks Roblox automatically**: a GitHub bot every 6 hours, and the open page every 2 minutes. Version 1.3 is a full **revamp**: a cruise-ship themed design, an “At a glance” dashboard, search, and link previews.
 
 > Not affiliated with Tableboard Studios or Roblox Corporation.
 
@@ -26,15 +26,30 @@ The studio hasn't posted a public testing announcement, and the official group s
 
 ## What's on the site
 
-- **Three YES/NO answer cards**, each with its reasoning and sources
-- **Progress tracker strip:** Announced → In development → Internal testing → Finalizing → Release, with the current stage highlighted and Finalizing marked unconfirmed
-- **Evidence cards** for the two Project 2026 test places, with live “last updated” dates
-- **Status updates timeline:** 20 dated entries from 2021 to today. Filter by Status / Official / Evidence / Game / New for you, show or hide older updates, “X days ago” labels
+The page, top to bottom:
+
+- **Hero:** the three answers as big animated cards (✓ YES · ✓ YES · ? NOT CONFIRMED), each with its basis, reasoning and sources, over a hand-drawn SVG ocean with a cruise ship sailing past. Plus **Copy summary**, the last-updated stamp and the version
+- **At a glance** dashboard: progress (stage 3 of 5), Cruise Ship Simulator visits with an animated count-up and a **visits sparkline**, players online, group members, favorites, the number of dated updates, and the **latest auto-check** (this page's live check, the GitHub bot's last run and its next scheduled run, a **Check now** button). Welcome-back and attention notices appear here too
+- **Progress tracker:** Announced → In development → Internal testing → Finalizing → Release, with the current stage highlighted and Finalizing marked unconfirmed, plus evidence cards for the two Project 2026 test places with live “last updated” dates
+- **Status updates timeline:** 22 dated entries from 2021 to today, each with a type marker (status, official, evidence, game, auto-detected). **Search** across updates and the FAQ, filter chips with counts (Status / Official / Evidence / Game / Auto-detected / New for you), “X days ago” labels, show or hide older updates
 - **What we know vs. what we don't:** sourced facts on one side, open questions on the other
 - **More details:** the studio, developer Bryce_TBS, Cruise Ship Simulator (description, genre, server size, badges, ship classes from the fan wiki) and a table of every Tableboard game
-- **Live stats:** Cruise Ship Simulator visits, favorites, players online, like ratio, group members and last update, refreshed from Roblox through the public `roproxy.com` mirror (static numbers from 28 Oct 2026 if that fails)
-- **FAQ** (11 questions) and **sources** (17, each with the date it was read)
-- **Upgrades:** dark/light toggle, share / copy-link button, back-to-top button, sticky section nav that tracks where you are, skip link, keyboard focus styles, reduced-motion support. No build step, no frameworks, no trackers
+- **Live stats:** Cruise Ship Simulator visits, favorites, players online, like ratio, group members and last update, refreshed from Roblox through the public `roproxy.com` mirror (static numbers from the last bot run if that fails)
+- **Automatic checks:** the bot's and the page's status, with the full check log (watched values, changes, recent runs) folded away
+- **FAQ** (12 questions, an accordion) and **sources** (17, each with the date it was read, folded away until you open them or follow a citation)
+- **Your saved data** panel
+
+### Revamp (v1.3)
+
+- **Design system:** system fonts with tighter headings, glassy cards (blurred, translucent), one spacing scale, and reworked colors for both the dark and light themes. Mobile-first: everything is laid out for a 390px-wide phone first, then widens to 2, 3 and 4 columns
+- **Sticky top nav** with an icon for every section. It scrolls sideways on phones and highlights the section you're reading
+- **Maritime theme:** CSS/SVG waves and a cruise-ship silhouette, all drawn for this site (no Roblox or game assets)
+- **Animations:** answer cards and badges stamp in, sections fade up as you scroll, numbers count up. All of it is switched off when your device asks for reduced motion
+- **Search:** press <kbd>/</kbd> anywhere (or tap the magnifier in the nav) to search updates and the FAQ together. Matches are highlighted, the filter chips show where they are, and matching FAQ answers open. <kbd>Esc</kbd> clears it
+- **Copy summary:** copies a short text status (the three answers with their basis, the current stage, the visits count and the link) for pasting into Discord or a chat
+- **Link previews:** favicon (`assets/favicon.svg`, plus PNG and Apple touch icons) and Open Graph / Twitter card tags with a 1200×630 preview image (`assets/og-image.png`), so a shared link shows the title, the three answers and the picture
+
+Also: dark/light toggle, share / copy-link button, back-to-top button, skip link, keyboard focus styles. No build step, no frameworks, no trackers, no external fonts.
 
 ## Automatic checks (v1.2)
 
@@ -64,7 +79,7 @@ The tracker watches Roblox on its own, in two layers. Neither one ever changes t
 
 Visit, player and member counts are recorded, but they don't create log entries.
 
-**Attention flags.** For big things the bot raises a flag that the page shows at the top, in a banner:
+**Attention flags.** For big things the bot raises a flag that the page shows near the top, in the At a glance dashboard:
 
 - a new game in the **main** group, especially one named Project 2026 / P26 (*“Public Project 2026 game detected: consider updating Finalizing / Release”*)
 - the official “Project 2026” listing, the dev group's project list (“Project 2027”, “Release: TBA”) or a group shout about the project changes
@@ -75,7 +90,7 @@ To dismiss a flag after you've dealt with it, set its `"resolved": true` in `dat
 
 **What it writes**
 
-- `data/checks.json`: last run time and result, every watched value, the recent changes, the last 40 runs and the attention flags
+- `data/checks.json`: last run time and result, every watched value, the recent changes, the last 40 runs, the attention flags and (since v1.3) a `history` series: one point per run with Cruise Ship Simulator `visits`, `playing`, `favorites` and the group's `members`, last 120 points. The page draws its visits sparkline from it. Because the bot only commits on a change or once a day, the committed history gains about one point a day
 - `data/status.json`: new Auto-detected updates and a fresh `stats` snapshot. It never touches `questions`, `stages` or `lastUpdated`, and it stops with an error if they would change.
 
 It commits as `github-actions[bot]` only when something changed, a flag was raised, or the last commit is more than a day old (a daily refresh of the stats). Other runs still show on the Actions tab and on the page.
@@ -96,7 +111,7 @@ GitHub pauses scheduled workflows in a repository with no activity for 60 days. 
 
 While the page is open it re-reads Roblox through `roproxy.com` (a public mirror of Roblox's API that browsers are allowed to call) every **2 minutes**, and pauses while the tab is hidden. It also re-reads `data/checks.json`, and asks GitHub's API for the workflow's latest run about every 10 minutes.
 
-- Under the title: a status dot (green OK, blue checking, pink changed, red error, grey paused), **“Last auto-check: X ago · Next in m:ss”** and a **Check now** button.
+- In the **At a glance** dashboard: a status dot (green OK, blue checking, pink changed, red error, grey paused), **“Last auto-check: X ago · Next in m:ss”**, the GitHub bot's last run and next scheduled run, and a **Check now** button.
 - A toast and a “Changed since you opened this page” box when a test place's update time, a group's place list or the official listing changes while you're reading. If the bot commits new entries meanwhile, the updates log reloads by itself.
 - **Automatic checks** section: the bot's last run and result, its latest GitHub run, every watched value, the changes it has detected and its recent runs.
 - **Memory:** the page saves what it last saw (`watch` in the `p26status` key), so your next visit starts with “Auto-check since your last visit: …”.
@@ -111,6 +126,7 @@ The site stores one small entry, `p26status`, in your browser's **localStorage**
 | `filter` | The update filter you last picked (All, Status, Official, Evidence, Game, Auto-detected, New for you) |
 | `lastVisit` / `prevVisit` | When you visited. Updates added since your previous visit get a **NEW SINCE YOUR LAST VISIT** badge, a “New for you (N)” filter appears, and the hero says “Welcome back! Your last visit was 3 days ago. 2 updates are new since then.” Loads less than 30 minutes apart count as one visit, so a refresh doesn't wipe your badges |
 | `snap` / `prevSnap` | A snapshot of the live Cruise Ship Simulator visits, favorites and group members. Next visit you'll see “+3,708 since your last visit” under each stat |
+| `hist` | Since v1.3: this browser's own visit-count readings (at most one every 10 minutes, the last 60). They're added to the bot's `history` points in the At a glance sparkline |
 | `watch` / `prevWatch` / `lastCheck` | What the live auto-check last saw: the test places' and Cruise Ship Simulator's update times, both groups' place lists and the official listing line. Next visit the page compares and shows “Auto-check since your last visit: Project 2026 Testing Server was updated …” |
 
 The **Your saved data** panel at the bottom of the page lists exactly what's stored, and **Clear my saved data** deletes it. If your browser blocks storage (some private modes do), the page works normally and just doesn't remember.
@@ -121,8 +137,10 @@ Every update in `data/status.json` has an `added` timestamp. That's what the “
 
 ```
 index.html         page structure and the static content (details, know/don't, FAQ)
-style.css          styling: dark + light themes, responsive layout
-script.js          renders answers, tracker, updates, stats and sources; theme, share, memory, live auto-check
+style.css          design system: dark + light themes, glass cards, waves/ship scene, responsive layout, animations
+script.js          renders answers, glance dashboard, tracker, updates, stats and sources; search, copy summary,
+                   sparkline, theme, share, memory, live auto-check
+assets/            favicon.svg, favicon-32.png, apple-touch-icon.png, og-image.png (1200×630 link preview)
 data/status.json   source of truth for answers, progress stages, updates, stats and sources
 data/checks.json   written by the auto-check bot: last run, watched values, changes, attention flags
 scripts/check.mjs  the auto-check script (Node, no dependencies)
@@ -143,7 +161,7 @@ Edit `data/status.json`:
 - **Add an update:** add an object to `"updates"` with `date` (YYYY-MM-DD, when it happened), `added` (ISO time you added it; it drives the “new” badges), `type` (`status`, `official`, `evidence` or `game`), `title`, `text` and optionally a `source` id from `"sources"`.
 - **Bump** `"lastUpdated"` and `"version"`.
 
-Then paste the same JSON into the `FALLBACK` block at the top of `script.js` so the offline copy matches. (Auto-detected entries live only in `data/status.json`; that's fine, the live site always reads it.)
+Then paste the same JSON into the `FALLBACK` block at the top of `script.js` so the offline copy matches. If an answer changes, also update the `og:description` / `twitter:description` tags in `index.html` and the preview picture `assets/og-image.png`, since link previews can't run JavaScript. (Auto-detected entries live only in `data/status.json`; that's fine, the live site always reads it.)
 
 ## Running it
 
