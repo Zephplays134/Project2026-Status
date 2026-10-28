@@ -1,0 +1,185 @@
+{
+  "project": "Project 2026",
+  "studio": "Tableboard Studios",
+  "owner": "Zephplays134",
+  "lastUpdated": "2026-10-28T12:05:00Z",
+  "questions": [
+    {
+      "id": "making",
+      "question": "Is Tableboard Studios making Project 2026?",
+      "answer": "YES",
+      "tone": "yes",
+      "basis": "Official listing",
+      "detail": "The official Tableboard Studios Roblox group lists “Project 2026 (2026) — To be announced” under Current Games, and founder Bryce_TBS lists Project 2026 first under Current Projects on his Roblox profile.",
+      "sources": [
+        "group",
+        "profile"
+      ]
+    },
+    {
+      "id": "testing",
+      "question": "Are they currently testing it internally?",
+      "answer": "YES",
+      "tone": "yes",
+      "basis": "Confirmed by site owner (Zephplays134)",
+      "detail": "Supporting evidence: a third-party tracker lists a private “Project 2026 Testing Server” and a “P26 Building Systems Development” place among Bryce_TBS's experiences. Tableboard Studios has not posted an official testing announcement.",
+      "sources": [
+        "rotraces",
+        "owner"
+      ]
+    },
+    {
+      "id": "finalizing",
+      "question": "Are they finalizing internal testing?",
+      "answer": "NOT CONFIRMED",
+      "tone": "unknown",
+      "basis": "No public evidence either way",
+      "detail": "Nothing public says testing is in its final stage, and nothing says it isn't. The official listing still reads “To be announced”.",
+      "sources": [
+        "group"
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-28",
+      "type": "status",
+      "title": "Tracker launched",
+      "text": "Status set: Making Project 2026 — YES. Testing internally — YES (confirmed by site owner). Finalizing testing — NOT CONFIRMED."
+    },
+    {
+      "date": "2026-10-28",
+      "type": "official",
+      "title": "Official group still says “To be announced”",
+      "text": "Checked today: the Tableboard Studios group (46,452 members) lists “Project 2026 (2026) — To be announced” under Current Games. No release date, trailer or feature list.",
+      "source": "group"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "official",
+      "title": "Founder's profile lists Project 2026",
+      "text": "Checked today: Bryce_TBS (Founder, CEO & Lead Developer) lists Project 2026 first under Current Projects, ahead of Cruise Ship Simulator.",
+      "source": "profile"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "evidence",
+      "title": "Private testing places spotted",
+      "text": "Checked today: rotraces.com lists “Project 2026 Testing Server” (46 visits) and “P26 Building Systems Development” (19 visits) under Bryce_TBS. Neither is in Roblox's public game list.",
+      "source": "rotraces"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "evidence",
+      "title": "Studio website doesn't mention it yet",
+      "text": "Checked today: the Tableboard Studios projects page only covers the older Cruise Line Simulator games.",
+      "source": "site"
+    },
+    {
+      "date": "2026-10-26",
+      "type": "game",
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox shows Cruise Ship Simulator was last updated on 26 Oct 2026.",
+      "source": "css"
+    },
+    {
+      "date": "2026-03-20",
+      "type": "game",
+      "title": "“World's Largest Cruise Ship” badge added",
+      "text": "Badge creation date in Cruise Ship Simulator, from Roblox's badge list.",
+      "source": "badges"
+    },
+    {
+      "date": "2025-12-20",
+      "type": "game",
+      "title": "Grand Cayman badge added",
+      "text": "Badge creation date in Cruise Ship Simulator.",
+      "source": "badges"
+    },
+    {
+      "date": "2025-08-09",
+      "type": "game",
+      "title": "Oasis Class badge added",
+      "text": "Badge creation date in Cruise Ship Simulator.",
+      "source": "badges"
+    },
+    {
+      "date": "2025-02-02",
+      "type": "game",
+      "title": "Triton Class badge added",
+      "text": "Badge creation date in Cruise Ship Simulator.",
+      "source": "badges"
+    },
+    {
+      "date": "2024-04-21",
+      "type": "game",
+      "title": "Cruise Ship Simulator created",
+      "text": "The studio's current game goes up on Roblox.",
+      "source": "css"
+    }
+  ],
+  "stats": {
+    "universeId": 5897329101,
+    "placeId": 17234598656,
+    "readDate": "2026-10-28",
+    "visits": 6263601,
+    "favorites": 35378,
+    "upVotes": 9625,
+    "downVotes": 2797,
+    "maxPlayers": 15,
+    "created": "2024-04-21",
+    "updated": "2026-10-26",
+    "groupMembers": 46452
+  },
+  "sources": [
+    {
+      "id": "group",
+      "name": "Tableboard Studios — official Roblox group",
+      "url": "https://www.roblox.com/communities/4795028/Tableboard-Studios",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "profile",
+      "name": "Bryce_TBS — Roblox profile (founder)",
+      "url": "https://www.roblox.com/users/127968748/profile",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "css",
+      "name": "Cruise Ship Simulator — Roblox game page & public API",
+      "url": "https://www.roblox.com/games/17234598656/Cruise-Ship-Simulator",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "badges",
+      "name": "Cruise Ship Simulator badges — Roblox badges API",
+      "url": "https://badges.roblox.com/v1/universes/5897329101/badges",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "site",
+      "name": "Tableboard Studios — projects page",
+      "url": "https://sites.google.com/view/tableboardstudios/projects",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "rotraces",
+      "name": "Rotraces — Bryce_TBS creator profile",
+      "url": "https://rotraces.com/Bryce_TBS",
+      "kind": "Third-party",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "owner",
+      "name": "Site owner confirmation (Zephplays134)",
+      "url": "https://github.com/Zephplays134",
+      "kind": "Owner",
+      "read": "2026-10-28"
+    }
+  ]
+}
