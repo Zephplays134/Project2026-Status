@@ -1,8 +1,8 @@
 # Project 2026 Status
 
-**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 1.1.0
+**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 1.2.0
 
-A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new.
+A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new, and it **checks Roblox automatically**: a GitHub bot every 6 hours, and the open page every 2 minutes.
 
 > Not affiliated with Tableboard Studios or Roblox Corporation.
 
@@ -36,6 +36,71 @@ The studio hasn't posted a public testing announcement, and the official group s
 - **FAQ** (11 questions) and **sources** (17, each with the date it was read)
 - **Upgrades:** dark/light toggle, share / copy-link button, back-to-top button, sticky section nav that tracks where you are, skip link, keyboard focus styles, reduced-motion support. No build step, no frameworks, no trackers
 
+## Automatic checks (v1.2)
+
+The tracker watches Roblox on its own, in two layers. Neither one ever changes the three YES/NO answers or the progress tracker; those stay the site owner's call.
+
+### 1. Server check (GitHub Actions, every 6 hours)
+
+`.github/workflows/auto-check.yml` runs `scripts/check.mjs` at **00:17, 06:17, 12:17 and 18:17 UTC** (cron `17 */6 * * *`), and whenever you start it by hand. It needs no secrets: it only reads Roblox's public APIs.
+
+**What it reads**
+
+| What | API |
+|---|---|
+| Project 2026 Testing Server, P26 Building Systems Development, Cruise Ship Simulator: name, “last updated”, visits, players, favorites | `games.roblox.com/v1/games?universeIds=9312735138,10764157170,5897329101` |
+| Cruise Ship Simulator likes/dislikes | `games.roblox.com/v1/games/votes` |
+| Tableboard Studios group: description (the “Project 2026 (2026) To be announced.” line), members, shout | `groups.roblox.com/v1/groups/4795028` |
+| Tableboard Studios Development group: description (the “Work in Progress” list, e.g. “Project 2027 (Release: TBA)”), members, shout | `groups.roblox.com/v1/groups/7714371` |
+| Public games in both groups | `games.roblox.com/v2/groups/{id}/gamesV2` |
+| Bryce_TBS's “Current projects” | `users.roblox.com/v1/users/127968748` |
+
+**What counts as a change.** Each of these adds a dated entry to the updates log, tagged **Auto-detected**:
+
+- a test place's (or Cruise Ship Simulator's) “last updated” time moves, or a place is renamed
+- a new place appears in either group, or one disappears from a public list
+- a group description changes (shown as removed / added lines) or a new group shout appears
+- Bryce_TBS's current projects change
+
+Visit, player and member counts are recorded, but they don't create log entries.
+
+**Attention flags.** For big things the bot raises a flag that the page shows at the top, in a banner:
+
+- a new game in the **main** group, especially one named Project 2026 / P26 (*“Public Project 2026 game detected: consider updating Finalizing / Release”*)
+- the official “Project 2026” listing, the dev group's project list (“Project 2027”, “Release: TBA”) or a group shout about the project changes
+- a test place is renamed or leaves the public list
+- Project 2026 drops off the founder's current projects
+
+To dismiss a flag after you've dealt with it, set its `"resolved": true` in `data/checks.json`.
+
+**What it writes**
+
+- `data/checks.json`: last run time and result, every watched value, the recent changes, the last 40 runs and the attention flags
+- `data/status.json`: new Auto-detected updates and a fresh `stats` snapshot. It never touches `questions`, `stages` or `lastUpdated`, and it stops with an error if they would change.
+
+It commits as `github-actions[bot]` only when something changed, a flag was raised, or the last commit is more than a day old (a daily refresh of the stats). Other runs still show on the Actions tab and on the page.
+
+**Run it by hand**
+
+- On GitHub: **Actions → Auto-check → Run workflow**. Tick *Commit checks.json even if nothing changed* to force a commit.
+- On your computer (Node 18 or newer, no install needed):
+
+  ```bash
+  node scripts/check.mjs            # check and write data/checks.json + data/status.json
+  node scripts/check.mjs --dry-run  # only print what changed
+  ```
+
+GitHub pauses scheduled workflows in a repository with no activity for 60 days. If that happens, open the Actions tab and click **Enable workflow**.
+
+### 2. Live check (in your browser, every 2 minutes)
+
+While the page is open it re-reads Roblox through `roproxy.com` (a public mirror of Roblox's API that browsers are allowed to call) every **2 minutes**, and pauses while the tab is hidden. It also re-reads `data/checks.json`, and asks GitHub's API for the workflow's latest run about every 10 minutes.
+
+- Under the title: a status dot (green OK, blue checking, pink changed, red error, grey paused), **“Last auto-check: X ago · Next in m:ss”** and a **Check now** button.
+- A toast and a “Changed since you opened this page” box when a test place's update time, a group's place list or the official listing changes while you're reading. If the bot commits new entries meanwhile, the updates log reloads by itself.
+- **Automatic checks** section: the bot's last run and result, its latest GitHub run, every watched value, the changes it has detected and its recent runs.
+- **Memory:** the page saves what it last saw (`watch` in the `p26status` key), so your next visit starts with “Auto-check since your last visit: …”.
+
 ## Memory: what the site remembers
 
 The site stores one small entry, `p26status`, in your browser's **localStorage**. Nothing is sent to a server, and there are no cookies or analytics.
@@ -43,9 +108,10 @@ The site stores one small entry, `p26status`, in your browser's **localStorage**
 | Saved | What it does |
 |---|---|
 | `theme` | Your dark/light choice, applied before the page paints so it doesn't flash. With no choice saved, it follows your device setting |
-| `filter` | The update filter you last picked (All, Status, Official, Evidence, Game, New for you) |
+| `filter` | The update filter you last picked (All, Status, Official, Evidence, Game, Auto-detected, New for you) |
 | `lastVisit` / `prevVisit` | When you visited. Updates added since your previous visit get a **NEW SINCE YOUR LAST VISIT** badge, a “New for you (N)” filter appears, and the hero says “Welcome back! Your last visit was 3 days ago. 2 updates are new since then.” Loads less than 30 minutes apart count as one visit, so a refresh doesn't wipe your badges |
 | `snap` / `prevSnap` | A snapshot of the live Cruise Ship Simulator visits, favorites and group members. Next visit you'll see “+3,708 since your last visit” under each stat |
+| `watch` / `prevWatch` / `lastCheck` | What the live auto-check last saw: the test places' and Cruise Ship Simulator's update times, both groups' place lists and the official listing line. Next visit the page compares and shows “Auto-check since your last visit: Project 2026 Testing Server was updated …” |
 
 The **Your saved data** panel at the bottom of the page lists exactly what's stored, and **Clear my saved data** deletes it. If your browser blocks storage (some private modes do), the page works normally and just doesn't remember.
 
@@ -56,8 +122,11 @@ Every update in `data/status.json` has an `added` timestamp. That's what the “
 ```
 index.html         page structure and the static content (details, know/don't, FAQ)
 style.css          styling: dark + light themes, responsive layout
-script.js          renders answers, tracker, updates, stats and sources; theme, share, memory
+script.js          renders answers, tracker, updates, stats and sources; theme, share, memory, live auto-check
 data/status.json   source of truth for answers, progress stages, updates, stats and sources
+data/checks.json   written by the auto-check bot: last run, watched values, changes, attention flags
+scripts/check.mjs  the auto-check script (Node, no dependencies)
+.github/workflows/auto-check.yml   runs the script every 6 hours and commits the results
 README.md
 CHANGELOG.md
 LICENSE            MIT
@@ -74,7 +143,7 @@ Edit `data/status.json`:
 - **Add an update:** add an object to `"updates"` with `date` (YYYY-MM-DD, when it happened), `added` (ISO time you added it; it drives the “new” badges), `type` (`status`, `official`, `evidence` or `game`), `title`, `text` and optionally a `source` id from `"sources"`.
 - **Bump** `"lastUpdated"` and `"version"`.
 
-Then paste the same JSON into the `FALLBACK` block at the top of `script.js` so the offline copy matches.
+Then paste the same JSON into the `FALLBACK` block at the top of `script.js` so the offline copy matches. (Auto-detected entries live only in `data/status.json`; that's fine, the live site always reads it.)
 
 ## Running it
 

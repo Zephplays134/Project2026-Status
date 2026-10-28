@@ -28,6 +28,7 @@
       <a href="#know">Know / don't</a>
       <a href="#details">Details</a>
       <a href="#stats">Stats</a>
+      <a href="#checks">Auto-check</a>
       <a href="#faq">FAQ</a>
       <a href="#sources">Sources</a>
     </nav>
@@ -45,9 +46,16 @@
     <p class="lede">Is Tableboard Studios, the developer of <strong>Cruise Ship Simulator</strong>, making Project 2026? Are they testing it internally, and are they finalizing that testing? The answers, the evidence behind them, and every update with its date and source.</p>
     <div class="stamp-row">
       <span class="pill live"><span class="pulse" aria-hidden="true"></span>Tracking</span>
-      <span class="stamp">Last updated <time id="last-updated" datetime="2026-10-28">28 Oct 2026</time> <span id="last-updated-rel"></span> · v<span id="version">1.1.0</span></span>
+      <span class="stamp">Last updated <time id="last-updated" datetime="2026-10-28">28 Oct 2026</time> <span id="last-updated-rel"></span> · v<span id="version">1.2.0</span></span>
     </div>
     <p class="welcome" id="welcome" hidden></p>
+    <div class="attention" id="attention" role="alert" hidden></div>
+    <div class="autocheck" id="autocheck">
+      <span class="ac-dot" id="ac-dot" data-state="idle" aria-hidden="true"></span>
+      <p class="ac-text" aria-live="polite"><b>Auto-check</b> <span id="ac-last">starting…</span><span class="ac-next" id="ac-next"></span></p>
+      <button class="ac-btn" id="ac-now" type="button">Check now</button>
+    </div>
+    <p class="ac-since" id="ac-since" hidden></p>
   </section>
 
   <section id="answers" aria-labelledby="answers-h">
@@ -106,6 +114,7 @@
         <button class="chip" type="button" data-filter="official" aria-pressed="false">Official</button>
         <button class="chip" type="button" data-filter="evidence" aria-pressed="false">Evidence</button>
         <button class="chip" type="button" data-filter="game" aria-pressed="false">Game</button>
+        <button class="chip" type="button" data-filter="auto" aria-pressed="false" id="chip-auto" hidden>Auto-detected</button>
         <button class="chip" type="button" data-filter="new" aria-pressed="false" id="chip-new" hidden>New for you</button>
       </div>
     </div>
@@ -238,11 +247,40 @@
     <a class="cta" href="https://www.roblox.com/games/17234598656/Cruise-Ship-Simulator" target="_blank" rel="noopener">Play Cruise Ship Simulator ↗</a>
   </section>
 
+  <section id="checks" aria-labelledby="checks-h">
+    <div class="section-head"><h2 id="checks-h">Automatic checks</h2><span class="muted small" id="checks-stamp">Roblox is checked every 6 hours by a GitHub bot, and every 2 minutes while this page is open</span></div>
+    <div class="checks-grid">
+      <article class="card">
+        <h3 class="card-h"><span class="ac-dot" id="srv-dot" data-state="idle" aria-hidden="true"></span>Server check · GitHub Actions</h3>
+        <p class="muted small">Runs <b>every 6 hours</b>. Reads Roblox's public APIs, logs what changed and adds “Auto-detected” entries to the updates. It never changes the three answers.</p>
+        <dl class="kv" id="srv-kv"><div><dt>Status</dt><dd>Loading…</dd></div></dl>
+      </article>
+      <article class="card">
+        <h3 class="card-h"><span class="ac-dot" id="page-dot" data-state="idle" aria-hidden="true"></span>This page · live check</h3>
+        <p class="muted small">Re-checks the test places, Cruise Ship Simulator and the studio groups <b>every 2 minutes</b> while this tab is open. It pauses when the tab is hidden.</p>
+        <dl class="kv" id="page-kv"><div><dt>Status</dt><dd>Starting…</dd></div></dl>
+      </article>
+    </div>
+    <div class="checks-grid">
+      <article class="card">
+        <h3 class="card-h">What the bot watches</h3>
+        <dl class="kv" id="watch-kv"><div><dt>Values</dt><dd>Loading…</dd></div></dl>
+      </article>
+      <article class="card">
+        <h3 class="card-h">Changes detected</h3>
+        <ul class="check-list" id="change-list"><li class="muted">Loading…</li></ul>
+        <h3 class="card-h sub">Recent runs</h3>
+        <ul class="check-list runs" id="run-list"><li class="muted">Loading…</li></ul>
+      </article>
+    </div>
+  </section>
+
   <section id="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">FAQ</h2>
     <div class="faq">
       <details><summary>Is Project 2026 real?</summary><p>Yes. It's listed on the official Tableboard Studios Roblox group as “Project 2026 (2026) — To be announced”, and founder Bryce_TBS lists it as a current project.</p></details>
       <details><summary>Why does this site say testing is YES?</summary><p>The site owner (Zephplays134) confirms it. The strongest public evidence is a “Project 2026 Testing Server” on Roblox, which describes itself as the official testing server for the studio's newest game. It's listed in the studio's invite-only development group, which Bryce_TBS owns. The studio hasn't announced testing publicly.</p></details>
+      <details><summary>Does this page update itself?</summary><p>Yes, in two ways. A GitHub bot checks Roblox every 6 hours (the test places' “last updated” dates, new places in either studio group, the group descriptions and the founder's current projects) and adds an “Auto-detected” entry to the updates when something changes. And while you have the page open, it re-checks Roblox every 2 minutes and tells you if anything moved. The three YES/NO answers never change automatically: if the bot sees something big, like a public Project 2026 game, it shows an attention flag and the site owner decides.</p></details>
       <details><summary>Can I join the testing server?</summary><p>No public way exists. It sits in an invite-only group, and its description says the game and its contents are under NDA, so nothing may be posted publicly without the development team's permission. Please don't pester the developers for access.</p></details>
       <details><summary>Are they finalizing testing?</summary><p>Not confirmed. Nothing public says testing is in its final stage. The test places were still being updated on 20 Oct 2026.</p></details>
       <details><summary>When does Project 2026 come out?</summary><p>No date has been announced. The name points to 2026, but the official listing only says “To be announced”.</p></details>

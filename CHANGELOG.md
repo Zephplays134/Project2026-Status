@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0] — 2026-10-28
+
+### Added
+- **Server auto-check (GitHub Actions).** `.github/workflows/auto-check.yml` runs `scripts/check.mjs` every 6 hours (`17 */6 * * *` UTC) and on demand. It reads Roblox's public APIs for the two Project 2026 test places, Cruise Ship Simulator, both Tableboard groups (descriptions, shouts, members, public games) and Bryce_TBS's current projects. It writes `data/checks.json` and adds dated **Auto-detected** entries to the updates log when something meaningful changes. It commits as `github-actions[bot]` only when something changed, a flag was raised, or once a day to refresh the stats.
+- **Attention flags.** Big changes (a public Project 2026 game, the official listing changing, a test place renamed or gone) raise a flag shown in a banner at the top of the page. The bot never changes the three answers, the progress stages or `lastUpdated`.
+- **Live auto-check on the page.** Re-checks Roblox every 2 minutes while the tab is open (paused when hidden): status dot, “Last auto-check: X ago · Next in m:ss”, **Check now** button, a toast and a “Changed since you opened this page” box, and an automatic reload of the updates when the bot commits.
+- **Automatic checks section:** the bot's last run and result, its latest GitHub run, the watched values, detected changes and recent runs.
+- **Memory:** the page remembers what the auto-check last saw and shows “Auto-check since your last visit” next time. New **Auto-detected** filter in the updates log.
+- `data/checks.json`, seeded with a real run on 28 Oct 2026, and an FAQ entry about the automatic checks.
+
+### Unchanged
+- All three answers: YES / YES (confirmed by site owner) / NOT CONFIRMED, and every existing fact, source and memory feature.
+
 ## [1.1.0] — 2026-10-28
 
 ### Added

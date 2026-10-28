@@ -1,0 +1,68 @@
+# Project 2026 Status — automatic check
+# Every 6 hours GitHub runs scripts/check.mjs, which reads Roblox's public APIs (no secrets),
+# writes data/checks.json and, when something meaningful changed, adds an "Auto-detected"
+# entry to the updates log in data/status.json. The bot never changes the three YES/NO answers.
+name: Auto-check
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # 00:17, 06:17, 12:17, 18:17 UTC
+  workflow_dispatch:
+    inputs:
+      force_commit:
+        description: "Commit checks.json even if nothing changed"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: auto-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check Roblox for changes
+        id: check
+        env:
+          FORCE_COMMIT: ${{ inputs.force_commit }}
+        run: node scripts/check.mjs
+
+      - name: Commit results
+        if: steps.check.outputs.commit == 'true'
+        env:
+          SUMMARY: ${{ steps.check.outputs.summary }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/checks.json data/status.json
+          if git diff --cached --quiet; then echo "Nothing to commit"; exit 0; fi
+          git commit -m "auto-check: ${SUMMARY}"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Rebuild GitHub Pages
+        if: steps.check.outputs.commit == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages rebuild request not accepted (the push usually triggers it anyway)"
+
+      - name: Summary
+        if: always()
+        env:
+          SUMMARY: ${{ steps.check.outputs.summary }}
+        run: |
+          echo "### Auto-check" >> "$GITHUB_STEP_SUMMARY"
+          echo "${SUMMARY:-the check step did not finish}" >> "$GITHUB_STEP_SUMMARY"

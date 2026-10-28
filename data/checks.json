@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
+  "lastRun": "2026-10-28T12:40:50.694Z",
+  "lastRunOk": true,
+  "lastCommittedRun": "2026-10-28T12:40:50.694Z",
+  "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
+  "watched": {
+    "testUpdated": "2026-10-20T21:19:10.187Z",
+    "buildUpdated": "2026-10-20T21:31:19.021Z",
+    "cssUpdated": "2026-10-26T00:32:40.347Z",
+    "cssVisits": 6263865,
+    "cssPlaying": 50,
+    "cssFavorites": 35378,
+    "groupMembers": 46453,
+    "devGroupMembers": 33,
+    "p26Listing": "-Project 2026 (2026) — To be announced.",
+    "devGroupWip": [
+      "Project 2027 (Release: TBA)",
+      "Cruise Ship Simulator"
+    ],
+    "founderProjects": [
+      "Project 2026",
+      "Cruise Ship Simulator"
+    ],
+    "mainGames": 3,
+    "devGames": 5
+  },
+  "attention": [],
+  "changes": [],
+  "runs": [
+    {
+      "at": "2026-10-28T12:40:50.694Z",
+      "ok": true,
+      "partial": false,
+      "changes": 0,
+      "errors": [],
+      "via": "local",
+      "committed": true,
+      "reason": "first run (seed)"
+    }
+  ],
+  "values": {
+    "css": {
+      "name": "Cruise Ship Simulator",
+      "updated": "2026-10-26T00:32:40.347Z",
+      "created": "2024-04-21T05:03:47.783Z",
+      "visits": 6263865,
+      "playing": 50,
+      "favorites": 35378,
+      "maxPlayers": 15
+    },
+    "test": {
+      "name": "Project 2026 Testing Server",
+      "updated": "2026-10-20T21:19:10.187Z",
+      "created": "2025-12-07T01:27:35.247Z",
+      "visits": 47,
+      "playing": 0,
+      "favorites": 4,
+      "maxPlayers": 50
+    },
+    "build": {
+      "name": "P26 Building Systems Development",
+      "updated": "2026-10-20T21:31:19.021Z",
+      "created": "2026-08-28T14:34:24.322Z",
+      "visits": 20,
+      "playing": 0,
+      "favorites": 2,
+      "maxPlayers": 50
+    },
+    "cssVotes": {
+      "up": 9626,
+      "down": 2797
+    },
+    "mainGroup": {
+      "name": "Tableboard Studios",
+      "members": 46453,
+      "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
+      "shout": null,
+      "p26": "-Project 2026 (2026) — To be announced."
+    },
+    "devGroup": {
+      "name": "Tableboard Studios Development",
+      "members": 33,
+      "description": "Invite-Only Development group of Tableboard Studios. \nLink to Main Group: https://www.roblox.com/groups/4795028/TableBoard-Studios#!/about \n----------------------------------------------- \n—Work in Progress—\nProject 2027 (Release: TBA)\nCruise Ship Simulator\n\n—Completed Games—\nCruise Line Simulator",
+      "shout": null
+    },
+    "founder": {
+      "name": "Bryce_TBS",
+      "projects": [
+        "Project 2026",
+        "Cruise Ship Simulator"
+      ]
+    },
+    "mainGames": [
+      {
+        "id": 2599448654,
+        "name": "Cruise Line Simulator: Classic",
+        "placeId": 6834929523,
+        "created": "2021-05-15T07:51:40.213Z",
+        "updated": "2024-12-30T15:35:49.28Z"
+      },
+      {
+        "id": 4231411362,
+        "name": "Cruise Line Simulator: A New Era",
+        "placeId": 11955907947,
+        "created": "2022-12-28T21:53:41.553Z",
+        "updated": "2024-12-03T16:24:25.267Z"
+      },
+      {
+        "id": 5897329101,
+        "name": "Cruise Ship Simulator",
+        "placeId": 17234598656,
+        "created": "2024-04-21T05:03:47.933Z",
+        "updated": "2026-10-20T14:16:32.307Z"
+      }
+    ],
+    "devGames": [
+      {
+        "id": 2680795196,
+        "name": "Cruise Line Simulator: Classic Testing Server",
+        "placeId": 6985346299,
+        "created": "2021-06-21T13:46:00.85Z",
+        "updated": "2025-05-08T15:29:50.62Z"
+      },
+      {
+        "id": 3561009906,
+        "name": "Cruise Line Simulator: New Era Testing Server",
+        "placeId": 9560596113,
+        "created": "2022-05-06T18:20:09.463Z",
+        "updated": "2025-05-08T15:30:22.657Z"
+      },
+      {
+        "id": 5897327079,
+        "name": "Cruise Ship Simulator Testing Server",
+        "placeId": 17234591235,
+        "created": "2024-04-21T05:03:10.007Z",
+        "updated": "2025-05-08T15:29:54.883Z"
+      },
+      {
+        "id": 9312735138,
+        "name": "Project 2026 Testing Server",
+        "placeId": 107818503696653,
+        "created": "2025-12-07T01:27:35.37Z",
+        "updated": "2026-09-10T01:28:59.09Z"
+      },
+      {
+        "id": 10764157170,
+        "name": "P26 Building Systems Development",
+        "placeId": 86392170052784,
+        "created": "2026-08-28T14:34:24.547Z",
+        "updated": "2026-09-10T01:30:22.937Z"
+      }
+    ]
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "project": "Project 2026",
   "studio": "Tableboard Studios",
   "owner": "Zephplays134",
-  "lastUpdated": "2026-10-28T12:30:00Z",
+  "lastUpdated": "2026-10-28T12:45:00Z",
   "questions": [
     {
       "id": "making",
@@ -77,6 +77,13 @@
     }
   ],
   "updates": [
+    {
+      "date": "2026-10-28",
+      "added": "2026-10-28T12:45:00Z",
+      "type": "status",
+      "title": "Tracker v1.2: automatic checks",
+      "text": "The tracker now checks Roblox by itself. A GitHub bot reads the test places, the studio groups, the founder's profile and both groups' game lists every 6 hours, and adds an “Auto-detected” entry here when something changes. The page also re-checks every 2 minutes while it's open. The answers are unchanged: YES, YES, NOT CONFIRMED. The bot can't change them; it raises an attention flag instead."
+    },
     {
       "date": "2026-10-28",
       "added": "2026-10-28T12:30:00Z",
@@ -243,15 +250,15 @@
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
     "readDate": "2026-10-28",
-    "visits": 6263657,
+    "visits": 6263865,
     "favorites": 35378,
-    "playing": 44,
-    "upVotes": 9625,
+    "playing": 50,
+    "upVotes": 9626,
     "downVotes": 2797,
     "maxPlayers": 15,
     "created": "2024-04-21",
     "updated": "2026-10-26",
-    "groupMembers": 46452,
+    "groupMembers": 46453,
     "testUpdated": "2026-10-20",
     "buildUpdated": "2026-10-20"
   },
