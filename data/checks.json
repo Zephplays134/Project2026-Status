@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-10-28T12:40:50.694Z",
+  "lastRun": "2026-10-28T12:41:38.872Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-10-28T12:40:50.694Z",
+  "lastCommittedRun": "2026-10-28T12:41:38.872Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-10-20T21:19:10.187Z",
     "buildUpdated": "2026-10-20T21:31:19.021Z",
     "cssUpdated": "2026-10-26T00:32:40.347Z",
-    "cssVisits": 6263865,
+    "cssVisits": 6263876,
     "cssPlaying": 50,
     "cssFavorites": 35378,
     "groupMembers": 46453,
@@ -30,6 +30,16 @@
   "changes": [],
   "runs": [
     {
+      "at": "2026-10-28T12:41:38.872Z",
+      "ok": true,
+      "partial": false,
+      "changes": 0,
+      "errors": [],
+      "via": "workflow_dispatch",
+      "committed": true,
+      "reason": "manual run"
+    },
+    {
       "at": "2026-10-28T12:40:50.694Z",
       "ok": true,
       "partial": false,
@@ -45,7 +55,7 @@
       "name": "Cruise Ship Simulator",
       "updated": "2026-10-26T00:32:40.347Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6263865,
+      "visits": 6263876,
       "playing": 50,
       "favorites": 35378,
       "maxPlayers": 15
