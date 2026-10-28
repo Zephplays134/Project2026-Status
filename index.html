@@ -1,123 +1,287 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07111f">
 <title>Project 2026 Status — Is Tableboard Studios testing it? YES / NO</title>
-<meta name="description" content="Fan-run status tracker for Tableboard Studios' Project 2026 on Roblox. Making it: YES. Testing internally: YES. Finalizing testing: not confirmed. Updates, sources and Cruise Ship Simulator stats.">
+<meta name="description" content="Fan-run status tracker for Tableboard Studios' Project 2026 on Roblox. Making it: YES. Testing internally: YES. Finalizing testing: not confirmed. Progress tracker, dated updates, studio details, live Cruise Ship Simulator stats and sources.">
 <meta property="og:title" content="Project 2026 Status — Testing internally: YES">
-<meta property="og:description" content="Is Tableboard Studios making Project 2026? Are they testing it internally? Big YES/NO answers, an update log and sources.">
+<meta property="og:description" content="Making Project 2026: YES · Testing internally: YES · Finalizing: NOT CONFIRMED. Sourced updates and live stats.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zephplays134.github.io/Project2026-Status/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%233ddc97'/%3E%3Cpath d='M18 33l9 9 19-20' stroke='%2304140d' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>/* apply the saved (or system) theme before first paint */
+(function(){try{var s=JSON.parse(localStorage.getItem("p26status")||"{}");var t=s.theme||(window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top">
+
+<header class="top" id="top">
   <div class="wrap top-inner">
-    <a class="brand" href="#top" aria-label="Project 2026 Status home"><span class="dot" aria-hidden="true"></span>P26 Status</a>
+    <a class="brand" href="#main" aria-label="Project 2026 Status, home"><span class="dot" aria-hidden="true"></span>P26 Status</a>
     <nav class="nav" aria-label="Sections">
       <a href="#answers">Answers</a>
+      <a href="#progress">Progress</a>
       <a href="#updates">Updates</a>
-      <a href="#game">Game stats</a>
+      <a href="#know">Know / don't</a>
+      <a href="#details">Details</a>
+      <a href="#stats">Stats</a>
       <a href="#faq">FAQ</a>
       <a href="#sources">Sources</a>
     </nav>
+    <div class="tools">
+      <button class="icon-btn" id="share-btn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to light mode" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    </div>
   </div>
 </header>
 
-<main id="main">
-  <section class="hero wrap" id="top">
+<main id="main" class="wrap">
+  <section class="hero" aria-labelledby="title">
     <p class="eyebrow">Roblox · Tableboard Studios · Fan-run tracker</p>
-    <h1>Project 2026 <span class="grad">Status</span></h1>
-    <p class="lede">Is Tableboard Studios, the team behind <strong>Cruise Ship Simulator</strong>, making Project 2026 — and is it in internal testing? Straight yes-or-no answers, with the evidence behind each one.</p>
+    <h1 id="title">Project 2026: <span class="grad">testing internally — YES</span></h1>
+    <p class="lede">Is Tableboard Studios, the developer of <strong>Cruise Ship Simulator</strong>, making Project 2026? Are they testing it internally, and are they finalizing that testing? The answers, the evidence behind them, and every update with its date and source.</p>
     <div class="stamp-row">
       <span class="pill live"><span class="pulse" aria-hidden="true"></span>Tracking</span>
-      <span class="stamp">Last updated <time id="last-updated" datetime="2026-10-28T12:05:00Z">28 Oct 2026</time> <span id="last-updated-rel" class="muted"></span></span>
+      <span class="stamp">Last updated <time id="last-updated" datetime="2026-10-28">28 Oct 2026</time> <span id="last-updated-rel"></span> · v<span id="version">1.1.0</span></span>
     </div>
+    <p class="welcome" id="welcome" hidden></p>
   </section>
 
-  <section class="wrap" id="answers" aria-labelledby="answers-h">
-    <h2 id="answers-h">The answers</h2>
-    <div class="answers" id="answer-grid">
-      <!-- Rendered from data/status.json by script.js; static copy below for no-JS -->
-      <article class="answer yes">
-        <p class="q">Is Tableboard Studios making Project 2026?</p>
-        <p class="badge">YES</p>
-        <p class="basis">Official listing</p>
-      </article>
-      <article class="answer yes">
-        <p class="q">Are they currently testing it internally?</p>
-        <p class="badge">YES</p>
-        <p class="basis">Confirmed by site owner (Zephplays134)</p>
-      </article>
-      <article class="answer unknown">
-        <p class="q">Are they finalizing internal testing?</p>
-        <p class="badge">NOT CONFIRMED</p>
-        <p class="basis">No public evidence either way</p>
-      </article>
+  <section id="answers" aria-labelledby="answers-h">
+    <div class="section-head"><h2 id="answers-h">The three answers</h2><span class="muted small">Tap a source to check it</span></div>
+    <div class="answers" id="answer-grid" aria-live="polite">
+      <article class="answer yes"><p class="num-q">Question 1</p><h3 class="q">Is Tableboard Studios making Project 2026?</h3><p class="badge">YES</p><p class="basis">Official listing</p></article>
+      <article class="answer yes"><p class="num-q">Question 2</p><h3 class="q">Are they currently testing it internally?</h3><p class="badge">YES</p><p class="basis">Confirmed by site owner (Zephplays134)</p></article>
+      <article class="answer unknown"><p class="num-q">Question 3</p><h3 class="q">Are they finalizing internal testing?</h3><p class="badge">NOT CONFIRMED</p><p class="basis">No public evidence either way</p></article>
     </div>
-    <p class="note">This is a fan-made tracker, not an official Tableboard Studios page. “Testing internally: YES” is the site owner's confirmation, backed by a private testing-server listing — the studio hasn't posted an official testing announcement.</p>
+    <p class="note">“Testing internally: YES” is the site owner's confirmation. Backing it up: Roblox itself lists an official <strong>Project 2026 Testing Server</strong> in the studio's invite-only development group. Tableboard Studios has <strong>not</strong> made a public testing announcement, and the server is under NDA, so its contents are private.</p>
   </section>
 
-  <section class="wrap" id="updates" aria-labelledby="updates-h">
-    <div class="section-head">
-      <h2 id="updates-h">Status updates</h2>
-      <div class="filters" role="group" aria-label="Filter updates" id="filters">
-        <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="chip" data-filter="status" aria-pressed="false">Status</button>
-        <button type="button" class="chip" data-filter="official" aria-pressed="false">Official</button>
-        <button type="button" class="chip" data-filter="evidence" aria-pressed="false">Evidence</button>
-        <button type="button" class="chip" data-filter="game" aria-pressed="false">Game</button>
+  <section id="progress" aria-labelledby="progress-h">
+    <div class="section-head"><h2 id="progress-h">Where Project 2026 is</h2><span class="muted small">Current stage highlighted</span></div>
+    <ol class="tracker" id="tracker">
+      <li class="stage done"><span class="node" aria-hidden="true"></span><span class="s-label">Announced</span><span class="s-note">Listed on the official group</span></li>
+      <li class="stage done"><span class="node" aria-hidden="true"></span><span class="s-label">In development</span><span class="s-note">Dev places on Roblox</span></li>
+      <li class="stage current"><span class="node" aria-hidden="true"></span><span class="s-label">Internal testing</span><span class="s-note">YES</span></li>
+      <li class="stage unconfirmed"><span class="node" aria-hidden="true"></span><span class="s-label">Finalizing</span><span class="s-note">Not confirmed</span></li>
+      <li class="stage todo"><span class="node" aria-hidden="true"></span><span class="s-label">Release</span><span class="s-note">No date</span></li>
+    </ol>
+    <div class="evidence">
+      <div class="ev-card">
+        <p class="ev-k">Official testing server</p>
+        <h3>Project 2026 Testing Server</h3>
+        <blockquote>“The official testing server for Tableboard Studios's newest game. This game and it's contents are NDA, nothing may be posted publicly without permission from the development team.”</blockquote>
+        <dl class="kv">
+          <div><dt>Listed in</dt><dd>Tableboard Studios Development (invite-only)</dd></div>
+          <div><dt>Created</dt><dd>7 Dec 2025</dd></div>
+          <div><dt>Last updated</dt><dd><span data-live="testUpdated">20 Oct 2026</span> <span class="rel" data-rel="testUpdated"></span></dd></div>
+          <div><dt>Server size</dt><dd>50 players</dd></div>
+        </dl>
+        <a class="src" href="https://games.roblox.com/v1/games?universeIds=9312735138" target="_blank" rel="noopener">Source: Roblox games API ↗</a>
+      </div>
+      <div class="ev-card">
+        <p class="ev-k">Development place</p>
+        <h3>P26 Building Systems Development</h3>
+        <p class="muted small">No public description.</p>
+        <dl class="kv">
+          <div><dt>Listed in</dt><dd>Tableboard Studios Development (invite-only)</dd></div>
+          <div><dt>Created</dt><dd>28 Aug 2026</dd></div>
+          <div><dt>Last updated</dt><dd><span data-live="buildUpdated">20 Oct 2026</span> <span class="rel" data-rel="buildUpdated"></span></dd></div>
+          <div><dt>Server size</dt><dd>50 players</dd></div>
+        </dl>
+        <a class="src" href="https://games.roblox.com/v1/games?universeIds=10764157170" target="_blank" rel="noopener">Source: Roblox games API ↗</a>
       </div>
     </div>
-    <ol class="timeline" id="timeline">
-      <li class="entry" data-type="status"><time datetime="2026-10-28">28 Oct 2026</time><h3>Tracker launched</h3><p>Making Project 2026: YES. Testing internally: YES. Finalizing testing: NOT CONFIRMED.</p></li>
-    </ol>
-    <button type="button" class="more" id="toggle-more" hidden>Show older updates</button>
   </section>
 
-  <section class="wrap" id="game" aria-labelledby="game-h">
+  <section id="updates" aria-labelledby="updates-h">
     <div class="section-head">
-      <h2 id="game-h">Cruise Ship Simulator stats</h2>
-      <span class="stamp" id="stats-stamp">Read from Roblox on 28 Oct 2026</span>
+      <h2 id="updates-h">Status updates</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filter updates">
+        <button class="chip is-on" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="status" aria-pressed="false">Status</button>
+        <button class="chip" type="button" data-filter="official" aria-pressed="false">Official</button>
+        <button class="chip" type="button" data-filter="evidence" aria-pressed="false">Evidence</button>
+        <button class="chip" type="button" data-filter="game" aria-pressed="false">Game</button>
+        <button class="chip" type="button" data-filter="new" aria-pressed="false" id="chip-new" hidden>New for you</button>
+      </div>
     </div>
-    <p class="muted small">The studio's current game, and the best signal of how big Project 2026's audience could be.</p>
-    <div class="stats" id="stats">
-      <div class="stat"><span class="num" data-stat="visits">6,263,601</span><span class="lbl">Visits</span></div>
-      <div class="stat"><span class="num" data-stat="favorites">35,378</span><span class="lbl">Favorites</span></div>
-      <div class="stat"><span class="num" data-stat="rating">77%</span><span class="lbl">Like ratio</span></div>
-      <div class="stat"><span class="num" data-stat="groupMembers">46,452</span><span class="lbl">Group members</span></div>
-      <div class="stat"><span class="num" data-stat="updated">26 Oct 2026</span><span class="lbl">Last game update</span></div>
-      <div class="stat"><span class="num" data-stat="created">21 Apr 2024</span><span class="lbl">Created</span></div>
-    </div>
-    <a class="cta" href="https://www.roblox.com/games/17234598656/Cruise-Ship-Simulator" rel="noopener" target="_blank">Play Cruise Ship Simulator on Roblox ↗</a>
+    <ol class="timeline" id="timeline"><li class="empty">Loading updates…</li></ol>
+    <button class="more" id="toggle-more" type="button" hidden aria-expanded="false">Show older updates</button>
   </section>
 
-  <section class="wrap" id="faq" aria-labelledby="faq-h">
+  <section id="know" aria-labelledby="know-h">
+    <h2 id="know-h">What we know vs. what we don't</h2>
+    <div class="kd">
+      <div class="kd-col known">
+        <h3><span aria-hidden="true">✓</span> Known (sourced)</h3>
+        <ul>
+          <li>Project 2026 is on the official group as <strong>“Project 2026 (2026) — To be announced”</strong>. <a href="#src-group">Group</a></li>
+          <li>Founder Bryce_TBS lists it <strong>first</strong> under Current Projects. <a href="#src-profile">Profile</a></li>
+          <li>An official <strong>Project 2026 Testing Server</strong> has existed since <strong>7 Dec 2025</strong>, for “Tableboard Studios's newest game”, under NDA. <a href="#src-testserver">Roblox API</a></li>
+          <li>A <strong>P26 Building Systems Development</strong> place has existed since <strong>28 Aug 2026</strong>. <a href="#src-buildplace">Roblox API</a></li>
+          <li>Both places were updated on <strong>20 Oct 2026</strong>. <a href="#src-testserver">Roblox API</a></li>
+          <li>Every Tableboard game has had a testing server in the same group: Cruise Line Simulator: Classic (Jun 2021), A New Era (May 2022, about 7 months before that game went up), and Cruise Ship Simulator (21 Apr 2024, the same day as the game). <a href="#src-devgames">Dev group games</a></li>
+        </ul>
+      </div>
+      <div class="kd-col unknown">
+        <h3><span aria-hidden="true">?</span> Not known yet</h3>
+        <ul>
+          <li><strong>What kind of game it is.</strong> The testing server only calls it the studio's “newest game”. The studio describes itself as making “maritime games”, but no source says Project 2026 is a ship game.</li>
+          <li><strong>A release date.</strong> The listing only says “To be announced”.</li>
+          <li><strong>Whether testing is being finalized.</strong> Nothing public says so.</li>
+          <li><strong>Features.</strong> No trailer, screenshots or feature list are public. The testing server's NDA says nothing may be posted without permission.</li>
+          <li><strong>The final name.</strong> “Project 2026” looks like a codename. The dev group's own description lists <strong>“Project 2027 (Release: TBA)”</strong> as a work in progress. That could be a typo or a separate project; no source says which.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="details" aria-labelledby="details-h">
+    <h2 id="details-h">More details</h2>
+    <div class="cards">
+      <article class="card">
+        <p class="ev-k">The studio</p>
+        <h3>Tableboard Studios</h3>
+        <p>In its own words, the studio creates “enjoyable maritime games you may enjoy for countless hours”. Its Discord says it was <strong>founded in 2019</strong>.</p>
+        <dl class="kv">
+          <div><dt>Owner</dt><dd>Bryce_TBS</dd></div>
+          <div><dt>Group members</dt><dd data-stat="groupMembers">46,452</dd></div>
+          <div><dt>Discord members</dt><dd>about 7,170 (28 Oct 2026)</dd></div>
+          <div><dt>Dev team (group roles)</dt><dd>Lead Developer &amp; CEO, a Lead Builder &amp; COO, 3 Senior Developers, 7 Developers</dd></div>
+          <div><dt>Community team</dt><dd>1 Community Manager, 5 Administrators, 12 Moderators</dd></div>
+          <div><dt>Other groups</dt><dd>Tableboard Studios Development (invite-only, 33 members) · Archives (1,255 members, for sunsetted projects)</dd></div>
+        </dl>
+        <p class="cites">Sources: <a href="#src-group">Group</a> · <a href="#src-discord">Discord</a> · <a href="#src-roles">Roles API</a> · <a href="#src-devgroup">Dev group</a></p>
+        <p class="links"><a href="https://discord.com/invite/tableboardstudios" target="_blank" rel="noopener">Discord</a><a href="https://x.com/TBStudiosRBLX" target="_blank" rel="noopener">X @TBStudiosRBLX</a><a href="https://www.tiktok.com/@tableboard_studios" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@Bryce_TBS" target="_blank" rel="noopener">YouTube</a></p>
+      </article>
+
+      <article class="card">
+        <p class="ev-k">The developer</p>
+        <h3>Bryce_TBS</h3>
+        <p>“Hey, I'm Bryce! just your average maritime enthusiast.” He is the Founder, CEO &amp; Lead Developer, and his profile says “programming and development handled by me”.</p>
+        <dl class="kv">
+          <div><dt>On Roblox since</dt><dd>19 May 2016</dd></div>
+          <div><dt>Followers</dt><dd>1,105 (28 Oct 2026)</dd></div>
+          <div><dt>Current projects</dt><dd>Project 2026 · Cruise Ship Simulator</dd></div>
+          <div><dt>Past projects</dt><dd>Cruise Line Simulator: A New Era · Cruise Line Simulator: Classic</dd></div>
+        </dl>
+        <p class="cites">Source: <a href="#src-profile">Roblox profile</a></p>
+      </article>
+
+      <article class="card wide">
+        <p class="ev-k">The current game</p>
+        <h3>Cruise Ship Simulator</h3>
+        <p>Its description: “Drive your very own Cruise Ship to stunning ports around the Med or Bahamas. You'll start small and buy new &amp; larger ships like the mighty Oasis Class.” You can start with the Allegra or Vista class, earn cash at each port, and work up to Elite Captain. The game calls itself <strong>“currently in BETA stages and … a Work in Progress”</strong>.</p>
+        <dl class="kv cols">
+          <div><dt>Genre</dt><dd>Simulation › Vehicle Sim</dd></div>
+          <div><dt>Server size</dt><dd>15 players</dd></div>
+          <div><dt>Created</dt><dd>21 Apr 2024</dd></div>
+          <div><dt>Last updated</dt><dd data-stat="updated">26 Oct 2026</dd></div>
+          <div><dt>Badges</dt><dd>Ship-class unlocks plus money milestones up to “You're a Billionaire!” (325 owners)</dd></div>
+          <div><dt>Other ships</dt><dd>Tugs, LNG carriers and yachts (fan wiki)</dd></div>
+        </dl>
+        <details class="inline">
+          <summary>Ship classes listed on the fan wiki</summary>
+          <p class="muted small">From the fan-run Tableboard Studios Wiki (Ships List, last edited 11 Mar 2026). It's not official and may be out of date.</p>
+          <ul class="shiplist">
+            <li><b>Royal Caribbean</b> Icon (dev-only), Oasis, Freedom, Vision</li>
+            <li><b>Carnival</b> Pinnacle, Excellence, Vista, Conquest</li>
+            <li><b>Disney</b> Adventure, Triton, Dream, Magic</li>
+            <li><b>Celebrity</b> Edge, Solstice, Flora</li>
+            <li><b>Norwegian</b> Prima, Breakaway</li>
+            <li><b>Princess</b> Royal, Grand</li>
+            <li><b>Costa</b> Vista, Allegra</li>
+            <li><b>Holland America</b> Pinnacle, Statendam</li>
+            <li><b>TUI</b> Blue Motion, Vision</li>
+            <li><b>Others</b> Helios (AIDA), R-Class (Azamara), Vista-Hybrid (Cunard), Meraviglia (MSC), Grand (P&amp;O)</li>
+            <li><b>Workboats &amp; yachts</b> Albatross, Orion, Volmar (LNG) · Ranger (tug) · Seabreeze, Evrima, Silhouette (yachts)</li>
+          </ul>
+          <p class="muted small">Latest patch notes on the wiki (server 0.1.3.8.5B; undated, page edited 6 Mar 2026): new Triton Class primary horn, consistent turning at any speed, deeper Pinnacle horns, fixed Pinnacle tram system.</p>
+        </details>
+        <p class="cites">Sources: <a href="#src-css">Game page &amp; API</a> · <a href="#src-badges">Badges API</a> · <a href="#src-wiki">Fan wiki</a></p>
+      </article>
+
+      <article class="card wide">
+        <p class="ev-k">Studio track record</p>
+        <h3>Every Tableboard Studios game</h3>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Tableboard Studios games table">
+          <table>
+            <thead><tr><th scope="col">Game</th><th scope="col">Created</th><th scope="col">Visits</th><th scope="col">Favorites</th><th scope="col">Likes</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Project 2026</th><td data-label="Created">—</td><td data-label="Visits">—</td><td data-label="Favorites">—</td><td data-label="Likes">—</td><td data-label="Status"><span class="tag status">To be announced</span></td></tr>
+              <tr><th scope="row">Cruise Ship Simulator</th><td data-label="Created">Apr 2024</td><td data-label="Visits" data-stat="visits">6,263,657</td><td data-label="Favorites" data-stat="favorites">35,378</td><td data-label="Likes">77%</td><td data-label="Status"><span class="tag official">Current (beta)</span></td></tr>
+              <tr><th scope="row">Cruise Line Simulator: A New Era</th><td data-label="Created">Dec 2022</td><td data-label="Visits">5,384,286</td><td data-label="Favorites">23,017</td><td data-label="Likes">56%</td><td data-label="Status"><span class="tag muted-tag">Discontinued</span></td></tr>
+              <tr><th scope="row">Cruise Line Simulator: Classic</th><td data-label="Created">May 2021</td><td data-label="Visits">346,739</td><td data-label="Favorites">2,256</td><td data-label="Likes">70%</td><td data-label="Status"><span class="tag muted-tag">Discontinued</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cites">Source: <a href="#src-games">Roblox games API</a>, read 28 Oct 2026. The like % is upvotes ÷ all votes. Together the three games had about 12 million visits.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="stats" aria-labelledby="stats-h">
+    <div class="section-head"><h2 id="stats-h">Cruise Ship Simulator, live</h2><span class="muted small" id="stats-stamp">Read from Roblox on 28 Oct 2026</span></div>
+    <div class="stats">
+      <div class="stat"><span class="num" data-stat="visits">6,263,657</span><span class="lbl">Visits</span><span class="delta" data-delta="visits"></span></div>
+      <div class="stat"><span class="num" data-stat="favorites">35,378</span><span class="lbl">Favorites</span><span class="delta" data-delta="favorites"></span></div>
+      <div class="stat"><span class="num" data-stat="playing">44</span><span class="lbl">Playing now</span></div>
+      <div class="stat"><span class="num" data-stat="rating">77%</span><span class="lbl">Like ratio</span></div>
+      <div class="stat"><span class="num" data-stat="groupMembers">46,452</span><span class="lbl">Group members</span><span class="delta" data-delta="groupMembers"></span></div>
+      <div class="stat"><span class="num" data-stat="updated">26 Oct 2026</span><span class="lbl">Game last updated</span></div>
+    </div>
+    <p class="muted small mem-hint" id="delta-hint">Come back later: this page remembers today's numbers and will show what changed since your visit.</p>
+    <a class="cta" href="https://www.roblox.com/games/17234598656/Cruise-Ship-Simulator" target="_blank" rel="noopener">Play Cruise Ship Simulator ↗</a>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">FAQ</h2>
     <div class="faq">
-      <details open><summary>What is Project 2026?</summary><p>An upcoming Roblox game from Tableboard Studios, the studio behind Cruise Ship Simulator and the Cruise Line Simulator games. Its official listing reads “Project 2026 (2026) — To be announced”. The real name, genre and features haven't been revealed.</p></details>
-      <details><summary>Why does it say YES to internal testing?</summary><p>The site owner, Zephplays134, confirms it. It's backed by a third-party tracker that lists a private “Project 2026 Testing Server” and a “P26 Building Systems Development” place owned by the studio's founder. There's no official studio post about testing yet.</p></details>
-      <details><summary>Are they finalizing testing?</summary><p>Not confirmed. Nothing public says testing is in its final stage, so the badge stays on NOT CONFIRMED until there's evidence either way.</p></details>
-      <details><summary>When does Project 2026 come out?</summary><p>No release date has been announced. The name suggests 2026, and the official group lists it as a 2026 game.</p></details>
-      <details><summary>Is this an official Tableboard Studios site?</summary><p>No. It's a fan-run tracker. Every fact links to where it came from in the Sources section.</p></details>
-      <details><summary>How is this page updated?</summary><p>All answers and updates live in <code>data/status.json</code> in the GitHub repo. Edit that one file and the page updates itself.</p></details>
+      <details><summary>Is Project 2026 real?</summary><p>Yes. It's listed on the official Tableboard Studios Roblox group as “Project 2026 (2026) — To be announced”, and founder Bryce_TBS lists it as a current project.</p></details>
+      <details><summary>Why does this site say testing is YES?</summary><p>The site owner (Zephplays134) confirms it. The strongest public evidence is a “Project 2026 Testing Server” on Roblox, which describes itself as the official testing server for the studio's newest game. It's listed in the studio's invite-only development group, which Bryce_TBS owns. The studio hasn't announced testing publicly.</p></details>
+      <details><summary>Can I join the testing server?</summary><p>No public way exists. It sits in an invite-only group, and its description says the game and its contents are under NDA, so nothing may be posted publicly without the development team's permission. Please don't pester the developers for access.</p></details>
+      <details><summary>Are they finalizing testing?</summary><p>Not confirmed. Nothing public says testing is in its final stage. The test places were still being updated on 20 Oct 2026.</p></details>
+      <details><summary>When does Project 2026 come out?</summary><p>No date has been announced. The name points to 2026, but the official listing only says “To be announced”.</p></details>
+      <details><summary>Is it a cruise ship game, or Cruise Ship Simulator 2?</summary><p>Unknown. The studio makes maritime games and Project 2026 is listed beside Cruise Ship Simulator, but no source says what Project 2026 is. Anything else is a guess.</p></details>
+      <details><summary>What is “P26 Building Systems Development”?</summary><p>A second Project 2026 place in the studio's development group, created 28 Aug 2026. Its name suggests work on building systems. It has no public description, so the details are unknown.</p></details>
+      <details><summary>Where do official announcements show up?</summary><p>Usually on the Roblox group, the studio's Discord (“Communications Server”), TikTok (@tableboard_studios) and X (@TBStudiosRBLX). Cruise Ship Simulator updates have been teased on TikTok before they shipped.</p></details>
+      <details><summary>Is this site official?</summary><p>No. It's a fan-run tracker by Zephplays134 and isn't affiliated with Tableboard Studios or Roblox. Every fact links to its source.</p></details>
+      <details><summary>How does the live data work?</summary><p>When you open the page, it asks Roblox's public API (through a public mirror) for Cruise Ship Simulator's visits, favorites, players and the group's member count, plus the test places' “last updated” dates. If that fails, it shows the numbers read on 28 Oct 2026.</p></details>
+      <details><summary>What does this site remember about me?</summary><p>Only what's listed under “Your saved data” below: your theme, your update filter, when you last visited and the stats from that visit. It's stored in your own browser (localStorage). Nothing is sent anywhere, and there are no cookies or trackers.</p></details>
     </div>
   </section>
 
-  <section class="wrap" id="sources" aria-labelledby="sources-h">
+  <section id="sources" aria-labelledby="sources-h">
     <h2 id="sources-h">Sources</h2>
-    <ul class="sources" id="source-list">
-      <li><a href="https://www.roblox.com/communities/4795028/Tableboard-Studios" rel="noopener" target="_blank">Tableboard Studios — official Roblox group</a> <span class="tag official">Official</span> <span class="muted small">read 28 Oct 2026</span></li>
-    </ul>
+    <ul class="sources" id="source-list"></ul>
+  </section>
+
+  <section id="memory" aria-labelledby="memory-h">
+    <div class="mem-card">
+      <div>
+        <h2 id="memory-h">Your saved data</h2>
+        <p class="muted small">This page remembers a few things in your browser so it can show what's new. It never leaves your device.</p>
+        <ul class="mem-list" id="mem-list"><li>Nothing saved yet.</li></ul>
+      </div>
+      <button class="ghost-btn" id="clear-btn" type="button">Clear my saved data</button>
+    </div>
   </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p>Fan-made tracker by <a href="https://github.com/Zephplays134">Zephplays134</a>. Not affiliated with Tableboard Studios or Roblox Corporation. <a href="https://github.com/Zephplays134/Project2026-Status">Source on GitHub</a> · MIT License</p>
+    <p>Fan-run tracker by <a href="https://github.com/Zephplays134">Zephplays134</a>. Not affiliated with Tableboard Studios or Roblox. <a href="https://github.com/Zephplays134/Project2026-Status">Source on GitHub</a> · MIT License</p>
   </div>
 </footer>
-<script src="script.js"></script>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript><p class="wrap muted small">Turn on JavaScript for live stats, updates and saved settings. The three answers above work without it.</p></noscript>
+<script src="script.js" defer></script>
 </body>
 </html>

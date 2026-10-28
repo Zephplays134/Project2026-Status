@@ -1,8 +1,9 @@
 {
+  "version": "1.1.0",
   "project": "Project 2026",
   "studio": "Tableboard Studios",
   "owner": "Zephplays134",
-  "lastUpdated": "2026-10-28T12:05:00Z",
+  "lastUpdated": "2026-10-28T12:30:00Z",
   "questions": [
     {
       "id": "making",
@@ -22,8 +23,10 @@
       "answer": "YES",
       "tone": "yes",
       "basis": "Confirmed by site owner (Zephplays134)",
-      "detail": "Supporting evidence: a third-party tracker lists a private “Project 2026 Testing Server” and a “P26 Building Systems Development” place among Bryce_TBS's experiences. Tableboard Studios has not posted an official testing announcement.",
+      "detail": "Supporting evidence: Roblox lists a “Project 2026 Testing Server”, described as “the official testing server for Tableboard Studios's newest game”, in the studio's invite-only development group (created 7 Dec 2025, last updated 20 Oct 2026), next to a “P26 Building Systems Development” place. Rotraces lists both too. The studio hasn't posted a public testing announcement.",
       "sources": [
+        "testserver",
+        "devgroup",
         "rotraces",
         "owner"
       ]
@@ -34,21 +37,64 @@
       "answer": "NOT CONFIRMED",
       "tone": "unknown",
       "basis": "No public evidence either way",
-      "detail": "Nothing public says testing is in its final stage, and nothing says it isn't. The official listing still reads “To be announced”.",
+      "detail": "Nothing public says testing is in its final stage, and nothing says it isn't. The testing places were still being updated on 20 Oct 2026, and the official listing still reads “To be announced”.",
       "sources": [
-        "group"
+        "group",
+        "testserver"
       ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "announced",
+      "label": "Announced",
+      "state": "done",
+      "note": "Listed on the official group as “To be announced”"
+    },
+    {
+      "id": "development",
+      "label": "In development",
+      "state": "done",
+      "note": "Building-systems dev place since 28 Aug 2026"
+    },
+    {
+      "id": "testing",
+      "label": "Internal testing",
+      "state": "current",
+      "note": "YES: confirmed by site owner, official testing server listed"
+    },
+    {
+      "id": "finalizing",
+      "label": "Finalizing",
+      "state": "unconfirmed",
+      "note": "Not confirmed"
+    },
+    {
+      "id": "release",
+      "label": "Release",
+      "state": "todo",
+      "note": "No date announced"
     }
   ],
   "updates": [
     {
       "date": "2026-10-28",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "status",
+      "title": "Tracker v1.1: official testing-server listing found",
+      "text": "New evidence for the testing answer. The “Project 2026 Testing Server” is listed by Roblox under the studio's own invite-only Tableboard Studios Development group, not only on a third-party tracker. The answers are unchanged: YES, YES, NOT CONFIRMED.",
+      "source": "devgroup"
+    },
+    {
+      "date": "2026-10-28",
+      "added": "2026-10-28T12:05:00Z",
       "type": "status",
       "title": "Tracker launched",
       "text": "Status set: Making Project 2026 — YES. Testing internally — YES (confirmed by site owner). Finalizing testing — NOT CONFIRMED."
     },
     {
       "date": "2026-10-28",
+      "added": "2026-10-28T12:05:00Z",
       "type": "official",
       "title": "Official group still says “To be announced”",
       "text": "Checked today: the Tableboard Studios group (46,452 members) lists “Project 2026 (2026) — To be announced” under Current Games. No release date, trailer or feature list.",
@@ -56,6 +102,7 @@
     },
     {
       "date": "2026-10-28",
+      "added": "2026-10-28T12:05:00Z",
       "type": "official",
       "title": "Founder's profile lists Project 2026",
       "text": "Checked today: Bryce_TBS (Founder, CEO & Lead Developer) lists Project 2026 first under Current Projects, ahead of Cruise Ship Simulator.",
@@ -63,13 +110,15 @@
     },
     {
       "date": "2026-10-28",
+      "added": "2026-10-28T12:05:00Z",
       "type": "evidence",
       "title": "Private testing places spotted",
-      "text": "Checked today: rotraces.com lists “Project 2026 Testing Server” (46 visits) and “P26 Building Systems Development” (19 visits) under Bryce_TBS. Neither is in Roblox's public game list.",
+      "text": "Checked today: rotraces.com lists “Project 2026 Testing Server” and “P26 Building Systems Development” under Bryce_TBS. Neither is in the main group's public game list.",
       "source": "rotraces"
     },
     {
       "date": "2026-10-28",
+      "added": "2026-10-28T12:05:00Z",
       "type": "evidence",
       "title": "Studio website doesn't mention it yet",
       "text": "Checked today: the Tableboard Studios projects page only covers the older Cruise Line Simulator games.",
@@ -77,13 +126,31 @@
     },
     {
       "date": "2026-10-26",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "Cruise Ship Simulator updated",
       "text": "Roblox shows Cruise Ship Simulator was last updated on 26 Oct 2026.",
       "source": "css"
     },
     {
+      "date": "2026-10-20",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "evidence",
+      "title": "Both Project 2026 test places updated",
+      "text": "Roblox records the Project 2026 Testing Server as updated at 21:19 UTC and P26 Building Systems Development at 21:31 UTC on 20 Oct 2026.",
+      "source": "testserver"
+    },
+    {
+      "date": "2026-08-28",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "evidence",
+      "title": "“P26 Building Systems Development” created",
+      "text": "A second Project 2026 place appears in the studio's development group, for building systems. It has no public description.",
+      "source": "buildplace"
+    },
+    {
       "date": "2026-03-20",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "“World's Largest Cruise Ship” badge added",
       "text": "Badge creation date in Cruise Ship Simulator, from Roblox's badge list.",
@@ -91,20 +158,55 @@
     },
     {
       "date": "2025-12-20",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "Grand Cayman badge added",
       "text": "Badge creation date in Cruise Ship Simulator.",
       "source": "badges"
     },
     {
+      "date": "2025-12-13",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "game",
+      "title": "Studio teases a big Cruise Ship Simulator update",
+      "text": "On TikTok the studio promised characters walking on ships again, animated NPC passengers and 4 new ships, “including the highly anticipated Dream Class”, expected 13–14 Dec.",
+      "source": "tiktok-dec"
+    },
+    {
+      "date": "2025-12-07",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "evidence",
+      "title": "Project 2026 Testing Server created",
+      "text": "Roblox's creation date for the testing server. Its description: “The official testing server for Tableboard Studios's newest game. This game and it's contents are NDA, nothing may be posted publicly without permission from the development team.”",
+      "source": "testserver"
+    },
+    {
+      "date": "2025-09-07",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "game",
+      "title": "“You're a Billionaire!” badge added",
+      "text": "For earning $1,000,000,000 in Cruise Ship Simulator. Rewards include the Njord Class Yacht with 4 exclusive musical horns. 325 players had earned it as of 28 Oct 2026.",
+      "source": "badges"
+    },
+    {
       "date": "2025-08-09",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "Oasis Class badge added",
       "text": "Badge creation date in Cruise Ship Simulator.",
       "source": "badges"
     },
     {
+      "date": "2025-07-05",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "game",
+      "title": "Studio announces its “largest update ever”",
+      "text": "On TikTok: 3 new cruise ships, tugs, LNG ships, weather, waves “and so much more” for Cruise Ship Simulator.",
+      "source": "tiktok-jul"
+    },
+    {
       "date": "2025-02-02",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "Triton Class badge added",
       "text": "Badge creation date in Cruise Ship Simulator.",
@@ -112,30 +214,80 @@
     },
     {
       "date": "2024-04-21",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "Cruise Ship Simulator created",
-      "text": "The studio's current game goes up on Roblox.",
+      "text": "The studio's current game goes up on Roblox. A “Cruise Ship Simulator Testing Server” was created the same day in the development group, the same pattern Project 2026 follows now.",
       "source": "css"
+    },
+    {
+      "date": "2022-12-28",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "game",
+      "title": "Cruise Line Simulator: A New Era created",
+      "text": "The studio's second game. It reached 5,384,286 visits and is now listed as discontinued.",
+      "source": "games"
+    },
+    {
+      "date": "2021-05-19",
+      "added": "2026-10-28T12:30:00Z",
+      "type": "game",
+      "title": "Cruise Line Simulator: Classic created",
+      "text": "The studio's first listed game (346,739 visits). Now discontinued; its page points players to Cruise Ship Simulator.",
+      "source": "games"
     }
   ],
   "stats": {
     "universeId": 5897329101,
     "placeId": 17234598656,
+    "testUniverseId": 9312735138,
+    "buildUniverseId": 10764157170,
     "readDate": "2026-10-28",
-    "visits": 6263601,
+    "visits": 6263657,
     "favorites": 35378,
+    "playing": 44,
     "upVotes": 9625,
     "downVotes": 2797,
     "maxPlayers": 15,
     "created": "2024-04-21",
     "updated": "2026-10-26",
-    "groupMembers": 46452
+    "groupMembers": 46452,
+    "testUpdated": "2026-10-20",
+    "buildUpdated": "2026-10-20"
   },
   "sources": [
     {
       "id": "group",
       "name": "Tableboard Studios — official Roblox group",
       "url": "https://www.roblox.com/communities/4795028/Tableboard-Studios",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "devgroup",
+      "name": "Tableboard Studios Development — invite-only Roblox group",
+      "url": "https://www.roblox.com/communities/7714371/Tableboard-Studios-Development",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "devgames",
+      "name": "Tableboard Studios Development — games list (Roblox games API)",
+      "url": "https://games.roblox.com/v2/groups/7714371/gamesV2?accessFilter=Public",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "testserver",
+      "name": "Project 2026 Testing Server — Roblox games API (place page is private)",
+      "url": "https://games.roblox.com/v1/games?universeIds=9312735138",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "buildplace",
+      "name": "P26 Building Systems Development — Roblox games API (place page is private)",
+      "url": "https://games.roblox.com/v1/games?universeIds=10764157170",
       "kind": "Official",
       "read": "2026-10-28"
     },
@@ -154,9 +306,44 @@
       "read": "2026-10-28"
     },
     {
+      "id": "games",
+      "name": "Tableboard Studios games — Roblox games API",
+      "url": "https://games.roblox.com/v2/groups/4795028/gamesV2?accessFilter=Public",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "roles",
+      "name": "Tableboard Studios staff roles — Roblox groups API",
+      "url": "https://groups.roblox.com/v1/groups/4795028/roles",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
       "id": "badges",
       "name": "Cruise Ship Simulator badges — Roblox badges API",
       "url": "https://badges.roblox.com/v1/universes/5897329101/badges",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "discord",
+      "name": "Tableboard Studios — Discord server (public invite info)",
+      "url": "https://discord.com/invite/tableboardstudios",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "tiktok-dec",
+      "name": "Tableboard Studios on TikTok — update teaser (13 Dec 2025)",
+      "url": "https://www.tiktok.com/@tableboard_studios/video/7583437263288175903",
+      "kind": "Official",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "tiktok-jul",
+      "name": "Tableboard Studios on TikTok — “largest update ever” (5 Jul 2025)",
+      "url": "https://www.tiktok.com/@tableboard_studios/video/7523595238141611295",
       "kind": "Official",
       "read": "2026-10-28"
     },
@@ -172,6 +359,13 @@
       "name": "Rotraces — Bryce_TBS creator profile",
       "url": "https://rotraces.com/Bryce_TBS",
       "kind": "Third-party",
+      "read": "2026-10-28"
+    },
+    {
+      "id": "wiki",
+      "name": "Tableboard Studios Wiki (fan-run) — Ships List & update notes",
+      "url": "https://tableboard-studios.fandom.com/wiki/Cruise_Ship_Simulator",
+      "kind": "Fan wiki",
       "read": "2026-10-28"
     },
     {
