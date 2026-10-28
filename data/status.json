@@ -1,5 +1,5 @@
 {
-  "version": "1.3.0",
+  "version": "2.0.0",
   "project": "Project 2026",
   "studio": "Tableboard Studios",
   "owner": "Zephplays134",
@@ -249,6 +249,13 @@
       "title": "Cruise Line Simulator: Classic created",
       "text": "The studio's first listed game (346,739 visits). Now discontinued; its page points players to Cruise Ship Simulator.",
       "source": "games"
+    },
+    {
+      "date": "2026-10-28",
+      "added": "2026-10-28T17:45:00Z",
+      "type": "status",
+      "title": "Tracker v2.0: full modern redesign",
+      "text": "Complete visual rewrite: aurora glass design with animated gradient backdrop, frosted glass cards and header, a bento "At a glance" dashboard, glowing progress tracker and timeline, gradient typography, scroll progress bar and refined light theme. Same facts throughout: still YES, YES, NOT CONFIRMED."
     }
   ],
   "stats": {
