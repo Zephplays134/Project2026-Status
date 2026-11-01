@@ -801,3 +801,58 @@ html.js .reveal.in { opacity: 1; transform: none; transition: opacity 0.7s var(-
   }
   html.js .reveal { opacity: 1; transform: none; }
 }
+
+
+/* ============================================================
+   v2.1.0 polish — appended layer, overrides the base sheet
+   ============================================================ */
+
+:root { --spot: rgba(56, 225, 255, 0.11); }
+[data-theme="light"] { --spot: rgba(8, 145, 178, 0.10); --bg: #f2f5fb; --bg-soft: #f8fbfe; }
+
+/* type ramp: bigger display headline with a soft aura */
+h1 { font-size: clamp(2.6rem, 7.2vw, 5.2rem); letter-spacing: -0.035em; }
+.grad {
+  text-shadow: 0 0 70px rgba(56, 225, 255, 0.30), 0 0 130px rgba(139, 140, 255, 0.18);
+}
+[data-theme="light"] .grad {
+  text-shadow: 0 0 52px rgba(8, 145, 178, 0.20), 0 0 110px rgba(91, 91, 214, 0.14);
+}
+.section-head h2, .block > h2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); }
+.answer .badge { font-size: 1.6rem; padding: 9px 19px; }
+.tile-big { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+
+/* pointer spotlight on glass cards (vars set in extras.js) */
+.answer, .card, .tile, .ev-card, .stat, .kd-col { position: relative; overflow: hidden; }
+.answer::after, .card::after, .tile::after, .ev-card::after, .stat::after, .kd-col::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  pointer-events: none; z-index: 0;
+  background: radial-gradient(250px circle at var(--mx, 50%) var(--my, 0%), var(--spot), transparent 70%);
+  opacity: 0; transition: opacity 0.4s var(--ease);
+}
+@media (hover: hover) {
+  .answer:hover::after, .card:hover::after, .tile:hover::after,
+  .ev-card:hover::after, .stat:hover::after, .kd-col:hover::after { opacity: 1; }
+}
+
+/* buttons: glossier primary */
+.btn.primary, .cta, .chip.is-on {
+  box-shadow: 0 6px 22px rgba(56, 225, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn.primary:hover, .cta:hover {
+  box-shadow: 0 10px 34px rgba(56, 225, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* header: gradient hairline once scrolled */
+.top::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 225, 255, 0.55), rgba(139, 140, 255, 0.55), transparent);
+  opacity: 0; transition: opacity var(--speed);
+}
+.top.scrolled::after { opacity: 0.7; }
+
+/* nav: icons only earlier so nothing clips */
+@media (max-width: 1080px) {
+  .nav a span { display: none; }
+  .nav a { padding: 8px 10px; }
+}
