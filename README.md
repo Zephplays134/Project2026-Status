@@ -24,6 +24,18 @@ The studio hasn't posted a public testing announcement, and the official group s
 - **P26 Building Systems Development** (universe 10764157170) is in the same group. It was created 28 Aug 2026, last updated 20 Oct 2026, and has no description. ([Roblox games API](https://games.roblox.com/v1/games?universeIds=10764157170))
 - **The same pattern as before.** That group has held a testing server for every Tableboard game: Cruise Line Simulator: Classic (Jun 2021), A New Era (May 2022) and Cruise Ship Simulator (21 Apr 2024). ([group games list](https://games.roblox.com/v2/groups/7714371/gamesV2?accessFilter=Public))
 
+## Major features
+
+What is publicly known about Project 2026 itself, so far. Every point is sourced; nothing here is speculation.
+
+- **It's a cruise ship simulator.** The studio's own companion status page describes Project 2026 as the cruise ship simulator from Roblox Tableboard Studios, the team behind Cruise Ship Simulator. ([tableboard-studios-2026](https://github.com/Zephplays134/tableboard-studios-2026), read 1 Nov 2026)
+- **Spirit class is the first confirmed ship class.** Tableboard Studios is building the **Spirit class** for Project 2026, and the first Spirit-class ship render was published on 30 Oct 2026: [`assets/spirit-class-render.png`](https://github.com/Zephplays134/tableboard-studios-2026/blob/main/assets/spirit-class-render.png). ([tableboard-studios-2026](https://github.com/Zephplays134/tableboard-studios-2026))
+- **Building systems are in active development.** The dedicated **P26 Building Systems Development** place in the studio's development group was created 28 Aug 2026 and last updated 20 Oct 2026. ([Roblox games API](https://games.roblox.com/v1/games?universeIds=10764157170))
+- **Internal testing is live and NDA-gated.** The official **Project 2026 Testing Server** (universe 9312735138) holds 50 players, was created 7 Dec 2025 and last updated 20 Oct 2026. Its description says contents are NDA: nothing may be posted publicly without permission from the development team. ([Roblox games API](https://games.roblox.com/v1/games?universeIds=9312735138))
+- **Same team, same playbook.** Same founder (Bryce_TBS), same staff structure (1 Lead Developer & CEO, 1 Lead Builder & COO, 3 Senior Developers, 7 Developers, plus community, admin and mod roles) and the same testing-server-in-the-dev-group pattern every earlier Tableboard game followed. ([staff roles](https://groups.roblox.com/v1/groups/4795028/roles), [group games list](https://games.roblox.com/v2/groups/7714371/gamesV2?accessFilter=Public))
+
+**Not announced yet:** the full feature list, the ship roster beyond Spirit class, pricing or gamepass details, a trailer, screenshots, and the release date (the official group still reads “To be announced”). This section updates as evidence lands; the auto-check bot watches the same sources every 6 hours.
+
 ## What's on the site
 
 The page, top to bottom:
@@ -192,6 +204,7 @@ Then paste the same JSON into the `FALLBACK` block at the top of `script.js` so 
 
 ## Related
 
+- [tableboard-studios-2026](https://github.com/Zephplays134/tableboard-studios-2026): the companion status page, home of the Spirit-class render and the Elevator chatbot
 - [Elevator202](https://github.com/Zephplays134/Elevator202): the original Project 2026 status monitor
 
 ## License
