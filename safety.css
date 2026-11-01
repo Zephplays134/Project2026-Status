@@ -1,0 +1,39 @@
+/* Safety systems — extra styling for the #safety section */
+
+#safety .cards {
+  gap: 14px;
+}
+
+#safety .card {
+  position: relative;
+  overflow: hidden;
+}
+
+#safety .card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent, #4cc3ff), transparent);
+  opacity: .55;
+}
+
+#safety .card:hover {
+  transform: translateY(-2px);
+}
+
+#safety .card.extra {
+  animation: safety-in .5s var(--ease, ease) backwards;
+  animation-delay: calc(var(--safety-i, 0) * 60ms);
+}
+
+@keyframes safety-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #safety .card.extra { animation: none; }
+  #safety .card:hover { transform: none; }
+}
