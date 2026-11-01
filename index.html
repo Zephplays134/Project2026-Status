@@ -99,6 +99,43 @@
     </div>
   </section>
   <div class="wrap">
+<section class="block glance-block reveal" id="glance" aria-labelledby="glance-h">
+    <div class="section-head"><h2 id="glance-h"><span class="h-ico"><svg class="ico" aria-hidden="true"><use href="#i-gauge"/></svg></span>At a glance</h2><span class="muted small">Live while this page is open</span></div>
+    <p class="welcome" id="welcome" hidden></p>
+    <div class="attention" id="attention" role="alert" hidden></div>
+    <div class="glance">
+      <article class="tile t-progress">
+        <p class="tile-k"><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Progress</p>
+        <p class="tile-big"><span id="g-stage">Internal testing</span></p>
+        <p class="muted small" id="g-stage-sub">Stage 3 of 5 · finalizing not confirmed</p>
+        <div class="pbar" id="g-pbar" role="img" aria-label="Stage 3 of 5"><span class="seg done"></span><span class="seg done"></span><span class="seg current"></span><span class="seg unconfirmed"></span><span class="seg todo"></span></div>
+        <ol class="pbar-labels" aria-hidden="true"><li>Ann.</li><li>Dev</li><li>Testing</li><li>Final</li><li>Release</li></ol>
+      </article>
+      <article class="tile t-visits">
+        <p class="tile-k"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Cruise Ship Simulator visits</p>
+        <p class="tile-big num"><span data-count="visits">6,265,190</span></p>
+        <p class="delta" data-delta="visits"></p>
+        <div class="spark-wrap"><svg class="spark" id="spark" viewBox="0 0 300 64" preserveAspectRatio="none" role="img" aria-label="Visits over time"></svg></div>
+        <p class="muted small" id="spark-note">Visits history loads with the automatic checks.</p>
+      </article>
+      <article class="tile t-mini">
+        <div class="mini"><span class="mini-i"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></span><span class="mini-n num" data-count="playing">47</span><span class="mini-l">playing now</span></div>
+        <div class="mini"><span class="mini-i"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span><span class="mini-n num" data-count="groupMembers">46,456</span><span class="mini-l">group members</span></div>
+        <div class="mini"><span class="mini-i"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></span><span class="mini-n num" data-count="favorites">35,380</span><span class="mini-l">favorites</span></div>
+        <div class="mini"><span class="mini-i"><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg></span><span class="mini-n num" id="g-updates">22</span><span class="mini-l">dated updates</span></div>
+      </article>
+      <article class="tile t-check">
+        <p class="tile-k"><svg class="ico" aria-hidden="true"><use href="#i-radar"/></svg>Latest auto-check</p>
+        <div class="autocheck" id="autocheck">
+          <span class="ac-dot" id="ac-dot" data-state="idle" aria-hidden="true"></span>
+          <p class="ac-text" aria-live="polite"><span id="ac-last">starting…</span><span class="ac-next" id="ac-next"></span></p>
+        </div>
+        <p class="small" id="g-server">GitHub bot: loading…</p>
+        <button class="btn small-btn" id="ac-now" type="button"><svg class="ico" aria-hidden="true"><use href="#i-radar"/></svg><span>Check now</span></button>
+        <p class="ac-since" id="ac-since" hidden></p>
+      </article>
+    </div>
+  </section>
 </main>
 </body>
 </html>
