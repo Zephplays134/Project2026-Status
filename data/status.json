@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "project": "Project 2026",
   "studio": "Tableboard Studios",
   "owner": "Zephplays134",
@@ -196,7 +196,7 @@
     },
     {
       "date": "2025-09-07",
-      "added": "2026-10-28T12:30:00Z",
+      "added": "2026-10-28T12:05:00Z",
       "type": "game",
       "title": "“You're a Billionaire!” badge added",
       "text": "For earning $1,000,000,000 in Cruise Ship Simulator. Rewards include the Njord Class Yacht with 4 exclusive musical horns. 325 players had earned it as of 28 Oct 2026.",
@@ -255,7 +255,7 @@
       "added": "2026-10-28T17:45:00Z",
       "type": "status",
       "title": "Tracker v2.0: full modern redesign",
-      "text": "Complete visual rewrite: aurora glass design with animated gradient backdrop, frosted glass cards and header, a bento "At a glance" dashboard, glowing progress tracker and timeline, gradient typography, scroll progress bar and refined light theme. Same facts throughout: still YES, YES, NOT CONFIRMED."
+      "text": "Complete visual rewrite: aurora glass design with animated gradient backdrop, frosted glass cards and header, a bento “At a glance” dashboard, glowing progress tracker and timeline, gradient typography, scroll progress bar and refined light theme. Same facts throughout: still YES, YES, NOT CONFIRMED."
     }
   ],
   "stats": {
