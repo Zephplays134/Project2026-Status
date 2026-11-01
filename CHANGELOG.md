@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0] — 2026-11-01 — Modern polish
+
+### Changed
+- **Pointer spotlight on cards.** On desktop, a soft light follows the cursor across the answer cards, bento tiles, stats, evidence and know/don't-know cards (off for touch devices and when reduced motion is set).
+- **Bigger, glowing headline.** The hero headline got a larger fluid size, tighter tracking and a soft aura behind the gradient text.
+- **Glossier buttons.** The primary buttons and active filter chips now carry an inner highlight with a brighter glow on hover.
+- **Header hairline.** A subtle gradient line appears under the header once you scroll.
+- **Nav no longer clips.** Below 1080px the nav shows icons only, so no label is cut off on narrower screens.
+- Softer light-theme background, larger stat numbers.
+- Fixed a broken JSON entry in `data/status.json` (unescaped quotes around "At a glance" from the 2.0.0 log entry) that made the page's data file fail to parse.
+- Version bumped to 2.1.0 in the page, `data/status.json`, this changelog and the README.
+
+### Not changed
+- The three answers, progress stages, facts, sources, `scripts/check.mjs`, the workflow, and all page behavior.
+
+
 ## [2.0.0] — 2026-10-28 — Full modern redesign
 
 ### Changed
