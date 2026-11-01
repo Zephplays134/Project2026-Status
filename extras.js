@@ -1,17 +1,1 @@
-/* Project 2026 Status — v2.0 extras: scroll progress bar + compact header.
-   Purely presentational; runs after script.js and touches no page logic. */
-(function () {
-  var bar = document.querySelector(".scrollbar"), top = document.querySelector(".top");
-  if (!bar && !top) return;
-  var raf = 0;
-  function update() {
-    raf = 0;
-    var doc = document.documentElement;
-    var max = doc.scrollHeight - window.innerHeight;
-    if (bar) bar.style.setProperty("--scroll", max > 0 ? String(Math.min(1, Math.max(0, window.scrollY / max))) : "0");
-    if (top) top.classList.toggle("scrolled", window.scrollY > 8);
-  }
-  window.addEventListener("scroll", function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
-  window.addEventListener("resize", update, { passive: true });
-  update();
-})();
+LyogUHJvamVjdCAyMDI2IFN0YXR1cyDigJQgdjIuMSBleHRyYXM6IHNjcm9sbCBwcm9ncmVzcyBiYXIsIGNvbXBhY3QgaGVhZGVyLCBjYXJkIHNwb3RsaWdodC4KICAgUHVyZWx5IHByZXNlbnRhdGlvbmFsOyBydW5zIGFmdGVyIHNjcmlwdC5qcyBhbmQgdG91Y2hlcyBubyBwYWdlIGxvZ2ljLiAqLwooZnVuY3Rpb24gKCkgewogIHZhciBiYXIgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIuc2Nyb2xsYmFyIiksIHRvcCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIi50b3AiKTsKICB2YXIgcmFmID0gMDsKICBmdW5jdGlvbiB1cGRhdGUoKSB7CiAgICByYWYgPSAwOwogICAgdmFyIGRvYyA9IGRvY3VtZW50LmRvY3VtZW50RWxlbWVudDsKICAgIHZhciBtYXggPSBkb2Muc2Nyb2xsSGVpZ2h0IC0gd2luZG93LmlubmVySGVpZ2h0OwogICAgaWYgKGJhcikgYmFyLnN0eWxlLnNldFByb3BlcnR5KCItLXNjcm9sbCIsIG1heCA+IDAgPyBTdHJpbmcoTWF0aC5taW4oMSwgTWF0aC5tYXgoMCwgd2luZG93LnNjcm9sbFkgLyBtYXgpKSkgOiAiMCIpOwogICAgaWYgKHRvcCkgdG9wLmNsYXNzTGlzdC50b2dnbGUoInNjcm9sbGVkIiwgd2luZG93LnNjcm9sbFkgPiA4KTsKICB9CiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoInNjcm9sbCIsIGZ1bmN0aW9uICgpIHsgaWYgKCFyYWYpIHJhZiA9IHJlcXVlc3RBbmltYXRpb25GcmFtZSh1cGRhdGUpOyB9LCB7IHBhc3NpdmU6IHRydWUgfSk7CiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoInJlc2l6ZSIsIHVwZGF0ZSwgeyBwYXNzaXZlOiB0cnVlIH0pOwogIHVwZGF0ZSgpOwoKICAvKiBwb2ludGVyIHNwb3RsaWdodCBvbiBnbGFzcyBjYXJkcyAoQ1NTIHJlYWRzIC0tbXggLyAtLW15KSAqLwogIHZhciBtcUhvdmVyID0gd2luZG93Lm1hdGNoTWVkaWEgJiYgd2luZG93Lm1hdGNoTWVkaWEoIihob3ZlcjogaG92ZXIpIGFuZCAocG9pbnRlcjogZmluZSkiKS5tYXRjaGVzOwogIHZhciBtcUNhbG0gPSB3aW5kb3cubWF0Y2hNZWRpYSAmJiB3aW5kb3cubWF0Y2hNZWRpYSgiKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkiKS5tYXRjaGVzOwogIGlmIChtcUhvdmVyICYmICFtcUNhbG0pIHsKICAgIHZhciBzZWwgPSAiLmFuc3dlciwgLmNhcmQsIC50aWxlLCAuZXYtY2FyZCwgLnN0YXQsIC5rZC1jb2wiOwogICAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigicG9pbnRlcm1vdmUiLCBmdW5jdGlvbiAoZSkgewogICAgICB2YXIgdCA9IGUudGFyZ2V0ICYmIGUudGFyZ2V0LmNsb3Nlc3QgPyBlLnRhcmdldC5jbG9zZXN0KHNlbCkgOiBudWxsOwogICAgICBpZiAodCkgewogICAgICAgIHZhciByID0gdC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKTsKICAgICAgICB0LnN0eWxlLnNldFByb3BlcnR5KCItLW14IiwgKCgoZS5jbGllbnRYIC0gci5sZWZ0KSAvIHIud2lkdGgpICogMTAwKS50b0ZpeGVkKDEpICsgIiUiKTsKICAgICAgICB0LnN0eWxlLnNldFByb3BlcnR5KCItLW15IiwgKCgoZS5jbGllbnRZIC0gci50b3ApIC8gci5oZWlnaHQpICogMTAwKS50b0ZpeGVkKDEpICsgIiUiKTsKICAgICAgfQogICAgfSwgeyBwYXNzaXZlOiB0cnVlIH0pOwogIH0KfSkoKTsK
