@@ -3,7 +3,7 @@
   "project": "Project 2026",
   "studio": "Tableboard Studios",
   "owner": "Zephplays134",
-  "lastUpdated": "2026-10-28T16:15:00Z",
+  "lastUpdated": "2026-11-01T16:10:00Z",
   "questions": [
     {
       "id": "making",
@@ -256,6 +256,14 @@
       "type": "status",
       "title": "Tracker v2.0: full modern redesign",
       "text": "Complete visual rewrite: aurora glass design with animated gradient backdrop, frosted glass cards and header, a bento “At a glance” dashboard, glowing progress tracker and timeline, gradient typography, scroll progress bar and refined light theme. Same facts throughout: still YES, YES, NOT CONFIRMED."
+    },
+    {
+      "date": "2026-11-01",
+      "added": "2026-11-01T16:10:00Z",
+      "type": "status",
+      "title": "Nov 1 check: internal testing continues, still no release month",
+      "text": "Checked today: the official group still lists “Project 2026 (2026) — To be announced”, the Project 2026 Testing Server and P26 Building Systems Development places were last updated on 20 Oct 2026, and Bryce_TBS hasn't named a release month anywhere public. Answers unchanged: YES, YES, NOT CONFIRMED.",
+      "source": "group"
     }
   ],
   "stats": {
