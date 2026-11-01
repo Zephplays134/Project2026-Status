@@ -1,8 +1,8 @@
 # Project 2026 Status
 
-**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 1.3.0
+**Live site:** https://zephplays134.github.io/Project2026-Status/ · **Version:** 2.1.0
 
-A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new, and it **checks Roblox automatically**: a GitHub bot every 6 hours, and the open page every 2 minutes. Version 1.3 is a full **revamp**: a cruise-ship themed design, an “At a glance” dashboard, search, and link previews.
+A fan-run status tracker for **Project 2026**, the upcoming Roblox game from **Tableboard Studios**, the studio behind *Cruise Ship Simulator* and the *Cruise Line Simulator* games. It answers three questions with big YES / NO badges, shows where the project is on a progress tracker, keeps a dated log of updates, and links every fact to its source. It also remembers each visitor, so a return visit shows what's new, and it **checks Roblox automatically**: a GitHub bot every 6 hours, and the open page every 2 minutes. Version 2.x is a full **modern redesign**: an aurora-glass dark/light theme, an “At a glance” dashboard, search, link previews and cursor-tracking card highlights.
 
 > Not affiliated with Tableboard Studios or Roblox Corporation.
 
