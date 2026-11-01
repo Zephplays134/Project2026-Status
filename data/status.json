@@ -264,6 +264,24 @@
       "title": "Nov 1 check: internal testing continues, still no release month",
       "text": "Checked today: the official group still lists “Project 2026 (2026) — To be announced”, the Project 2026 Testing Server and P26 Building Systems Development places were last updated on 20 Oct 2026, and Bryce_TBS hasn't named a release month anywhere public. Answers unchanged: YES, YES, NOT CONFIRMED.",
       "source": "group"
+    },
+    {
+      "date": "2026-10-29",
+      "added": "2026-11-01T22:00:25.509Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "P26 Building Systems Development updated",
+      "text": "Roblox now shows P26 Building Systems Development as last updated at 18:51 UTC on 29 Oct 2026 (previous check: 20 Oct 2026).",
+      "source": "buildplace"
+    },
+    {
+      "date": "2026-10-31",
+      "added": "2026-11-01T22:00:25.509Z",
+      "type": "game",
+      "auto": true,
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 20:51 UTC on 31 Oct 2026 (previous check: 26 Oct 2026).",
+      "source": "css"
     }
   ],
   "stats": {
@@ -271,18 +289,18 @@
     "placeId": 17234598656,
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
-    "readDate": "2026-10-28",
-    "visits": 6265190,
-    "favorites": 35380,
-    "playing": 47,
-    "upVotes": 9626,
-    "downVotes": 2797,
+    "readDate": "2026-11-01",
+    "visits": 6302939,
+    "favorites": 35467,
+    "playing": 73,
+    "upVotes": 9653,
+    "downVotes": 2810,
     "maxPlayers": 15,
     "created": "2024-04-21",
-    "updated": "2026-10-26",
-    "groupMembers": 46456,
+    "updated": "2026-10-31",
+    "groupMembers": 46518,
     "testUpdated": "2026-10-20",
-    "buildUpdated": "2026-10-20"
+    "buildUpdated": "2026-10-29"
   },
   "sources": [
     {

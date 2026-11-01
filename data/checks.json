@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-10-28T16:16:05.729Z",
+  "lastRun": "2026-11-01T22:00:25.509Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-10-28T12:41:38.872Z",
+  "lastCommittedRun": "2026-11-01T22:00:25.509Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-10-20T21:19:10.187Z",
-    "buildUpdated": "2026-10-20T21:31:19.021Z",
-    "cssUpdated": "2026-10-26T00:32:40.347Z",
-    "cssVisits": 6265190,
-    "cssPlaying": 47,
-    "cssFavorites": 35380,
-    "groupMembers": 46456,
+    "buildUpdated": "2026-10-29T18:51:21.064Z",
+    "cssUpdated": "2026-10-31T20:51:15.949Z",
+    "cssVisits": 6302939,
+    "cssPlaying": 73,
+    "cssFavorites": 35467,
+    "groupMembers": 46518,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -27,8 +27,35 @@
     "devGames": 5
   },
   "attention": [],
-  "changes": [],
+  "changes": [
+    {
+      "at": "2026-11-01T22:00:25.509Z",
+      "kind": "place-updated",
+      "type": "evidence",
+      "title": "P26 Building Systems Development updated",
+      "text": "Roblox now shows P26 Building Systems Development as last updated at 18:51 UTC on 29 Oct 2026 (previous check: 20 Oct 2026).",
+      "source": "buildplace"
+    },
+    {
+      "at": "2026-11-01T22:00:25.509Z",
+      "kind": "place-updated",
+      "type": "game",
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 20:51 UTC on 31 Oct 2026 (previous check: 26 Oct 2026).",
+      "source": "css"
+    }
+  ],
   "runs": [
+    {
+      "at": "2026-11-01T22:00:25.509Z",
+      "ok": true,
+      "partial": false,
+      "changes": 2,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "2 change(s)"
+    },
     {
       "at": "2026-10-28T16:16:05.729Z",
       "ok": true,
@@ -63,38 +90,38 @@
   "values": {
     "css": {
       "name": "Cruise Ship Simulator",
-      "updated": "2026-10-26T00:32:40.347Z",
+      "updated": "2026-10-31T20:51:15.949Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6265190,
-      "playing": 47,
-      "favorites": 35380,
+      "visits": 6302939,
+      "playing": 73,
+      "favorites": 35467,
       "maxPlayers": 15
     },
     "test": {
       "name": "Project 2026 Testing Server",
       "updated": "2026-10-20T21:19:10.187Z",
       "created": "2025-12-07T01:27:35.247Z",
-      "visits": 47,
+      "visits": 48,
       "playing": 0,
       "favorites": 4,
       "maxPlayers": 50
     },
     "build": {
       "name": "P26 Building Systems Development",
-      "updated": "2026-10-20T21:31:19.021Z",
+      "updated": "2026-10-29T18:51:21.064Z",
       "created": "2026-08-28T14:34:24.322Z",
-      "visits": 20,
+      "visits": 22,
       "playing": 0,
-      "favorites": 2,
+      "favorites": 3,
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9626,
-      "down": 2797
+      "up": 9653,
+      "down": 2810
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46456,
+      "members": 46518,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -187,6 +214,13 @@
       "playing": 47,
       "favorites": 35380,
       "members": 46456
+    },
+    {
+      "at": "2026-11-01T22:00:25.509Z",
+      "visits": 6302939,
+      "playing": 73,
+      "favorites": 35467,
+      "members": 46518
     }
   ]
 }
