@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-11-01T22:00:25.509Z",
+  "lastRun": "2026-11-02T05:59:12.839Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-11-01T22:00:25.509Z",
+  "lastCommittedRun": "2026-11-02T05:59:12.839Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-10-20T21:19:10.187Z",
-    "buildUpdated": "2026-10-29T18:51:21.064Z",
+    "buildUpdated": "2026-11-02T01:28:02.161Z",
     "cssUpdated": "2026-10-31T20:51:15.949Z",
-    "cssVisits": 6302939,
-    "cssPlaying": 73,
-    "cssFavorites": 35467,
-    "groupMembers": 46518,
+    "cssVisits": 6305138,
+    "cssPlaying": 29,
+    "cssFavorites": 35473,
+    "groupMembers": 46521,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -28,6 +28,14 @@
   },
   "attention": [],
   "changes": [
+    {
+      "at": "2026-11-02T05:59:12.839Z",
+      "kind": "place-updated",
+      "type": "evidence",
+      "title": "P26 Building Systems Development updated",
+      "text": "Roblox now shows P26 Building Systems Development as last updated at 01:28 UTC on 2 Nov 2026 (previous check: 29 Oct 2026).",
+      "source": "buildplace"
+    },
     {
       "at": "2026-11-01T22:00:25.509Z",
       "kind": "place-updated",
@@ -46,6 +54,16 @@
     }
   ],
   "runs": [
+    {
+      "at": "2026-11-02T05:59:12.839Z",
+      "ok": true,
+      "partial": false,
+      "changes": 1,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "1 change(s)"
+    },
     {
       "at": "2026-11-01T22:00:25.509Z",
       "ok": true,
@@ -92,9 +110,9 @@
       "name": "Cruise Ship Simulator",
       "updated": "2026-10-31T20:51:15.949Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6302939,
-      "playing": 73,
-      "favorites": 35467,
+      "visits": 6305138,
+      "playing": 29,
+      "favorites": 35473,
       "maxPlayers": 15
     },
     "test": {
@@ -108,20 +126,20 @@
     },
     "build": {
       "name": "P26 Building Systems Development",
-      "updated": "2026-10-29T18:51:21.064Z",
+      "updated": "2026-11-02T01:28:02.161Z",
       "created": "2026-08-28T14:34:24.322Z",
-      "visits": 22,
+      "visits": 23,
       "playing": 0,
       "favorites": 3,
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9653,
-      "down": 2810
+      "up": 9655,
+      "down": 2812
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46518,
+      "members": 46521,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -221,6 +239,13 @@
       "playing": 73,
       "favorites": 35467,
       "members": 46518
+    },
+    {
+      "at": "2026-11-02T05:59:12.839Z",
+      "visits": 6305138,
+      "playing": 29,
+      "favorites": 35473,
+      "members": 46521
     }
   ]
 }
