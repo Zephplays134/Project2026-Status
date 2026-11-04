@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-11-03T14:11:08.268Z",
+  "lastRun": "2026-11-04T06:18:03.666Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-11-03T14:11:08.268Z",
+  "lastCommittedRun": "2026-11-04T06:18:03.666Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-10-20T21:19:10.187Z",
     "buildUpdated": "2026-11-02T01:28:02.161Z",
-    "cssUpdated": "2026-10-31T20:51:15.949Z",
-    "cssVisits": 6313998,
-    "cssPlaying": 71,
-    "cssFavorites": 35492,
-    "groupMembers": 46532,
+    "cssUpdated": "2026-11-04T00:37:02.488Z",
+    "cssVisits": 6318643,
+    "cssPlaying": 19,
+    "cssFavorites": 35506,
+    "groupMembers": 46542,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -28,6 +28,14 @@
   },
   "attention": [],
   "changes": [
+    {
+      "at": "2026-11-04T06:18:03.666Z",
+      "kind": "place-updated",
+      "type": "game",
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 00:37 UTC on 4 Nov 2026 (previous check: 31 Oct 2026).",
+      "source": "css"
+    },
     {
       "at": "2026-11-02T05:59:12.839Z",
       "kind": "place-updated",
@@ -54,6 +62,16 @@
     }
   ],
   "runs": [
+    {
+      "at": "2026-11-04T06:18:03.666Z",
+      "ok": true,
+      "partial": false,
+      "changes": 1,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "1 change(s)"
+    },
     {
       "at": "2026-11-03T14:11:08.268Z",
       "ok": true,
@@ -118,11 +136,11 @@
   "values": {
     "css": {
       "name": "Cruise Ship Simulator",
-      "updated": "2026-10-31T20:51:15.949Z",
+      "updated": "2026-11-04T00:37:02.488Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6313998,
-      "playing": 71,
-      "favorites": 35492,
+      "visits": 6318643,
+      "playing": 19,
+      "favorites": 35506,
       "maxPlayers": 15
     },
     "test": {
@@ -144,12 +162,12 @@
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9661,
-      "down": 2816
+      "up": 9668,
+      "down": 2817
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46532,
+      "members": 46542,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -263,6 +281,13 @@
       "playing": 71,
       "favorites": 35492,
       "members": 46532
+    },
+    {
+      "at": "2026-11-04T06:18:03.666Z",
+      "visits": 6318643,
+      "playing": 19,
+      "favorites": 35506,
+      "members": 46542
     }
   ]
 }
