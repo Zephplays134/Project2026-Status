@@ -300,6 +300,24 @@
       "title": "Cruise Ship Simulator updated",
       "text": "Roblox now shows Cruise Ship Simulator as last updated at 00:37 UTC on 4 Nov 2026 (previous check: 31 Oct 2026).",
       "source": "css"
+    },
+    {
+      "date": "2026-11-05",
+      "added": "2026-11-05T06:43:26.079Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Project 2026 Testing Server updated",
+      "text": "Roblox now shows Project 2026 Testing Server as last updated at 00:11 UTC on 5 Nov 2026 (previous check: 20 Oct 2026).",
+      "source": "testserver"
+    },
+    {
+      "date": "2026-11-05",
+      "added": "2026-11-05T06:43:26.079Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "P26 Building Systems Development updated",
+      "text": "Roblox now shows P26 Building Systems Development as last updated at 00:11 UTC on 5 Nov 2026 (previous check: 2 Nov 2026).",
+      "source": "buildplace"
     }
   ],
   "stats": {
@@ -307,18 +325,18 @@
     "placeId": 17234598656,
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
-    "readDate": "2026-11-04",
-    "visits": 6318643,
-    "favorites": 35506,
-    "playing": 19,
-    "upVotes": 9668,
+    "readDate": "2026-11-05",
+    "visits": 6325041,
+    "favorites": 35524,
+    "playing": 25,
+    "upVotes": 9672,
     "downVotes": 2817,
     "maxPlayers": 15,
     "created": "2024-04-21",
     "updated": "2026-11-04",
-    "groupMembers": 46542,
-    "testUpdated": "2026-10-20",
-    "buildUpdated": "2026-11-02"
+    "groupMembers": 46555,
+    "testUpdated": "2026-11-05",
+    "buildUpdated": "2026-11-05"
   },
   "sources": [
     {

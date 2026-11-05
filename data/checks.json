@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-11-04T06:18:03.666Z",
+  "lastRun": "2026-11-05T06:43:26.079Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-11-04T06:18:03.666Z",
+  "lastCommittedRun": "2026-11-05T06:43:26.079Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
-    "testUpdated": "2026-10-20T21:19:10.187Z",
-    "buildUpdated": "2026-11-02T01:28:02.161Z",
+    "testUpdated": "2026-11-05T00:11:12.885Z",
+    "buildUpdated": "2026-11-05T00:11:09.284Z",
     "cssUpdated": "2026-11-04T00:37:02.488Z",
-    "cssVisits": 6318643,
-    "cssPlaying": 19,
-    "cssFavorites": 35506,
-    "groupMembers": 46542,
+    "cssVisits": 6325041,
+    "cssPlaying": 25,
+    "cssFavorites": 35524,
+    "groupMembers": 46555,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -28,6 +28,22 @@
   },
   "attention": [],
   "changes": [
+    {
+      "at": "2026-11-05T06:43:26.079Z",
+      "kind": "place-updated",
+      "type": "evidence",
+      "title": "Project 2026 Testing Server updated",
+      "text": "Roblox now shows Project 2026 Testing Server as last updated at 00:11 UTC on 5 Nov 2026 (previous check: 20 Oct 2026).",
+      "source": "testserver"
+    },
+    {
+      "at": "2026-11-05T06:43:26.079Z",
+      "kind": "place-updated",
+      "type": "evidence",
+      "title": "P26 Building Systems Development updated",
+      "text": "Roblox now shows P26 Building Systems Development as last updated at 00:11 UTC on 5 Nov 2026 (previous check: 2 Nov 2026).",
+      "source": "buildplace"
+    },
     {
       "at": "2026-11-04T06:18:03.666Z",
       "kind": "place-updated",
@@ -62,6 +78,16 @@
     }
   ],
   "runs": [
+    {
+      "at": "2026-11-05T06:43:26.079Z",
+      "ok": true,
+      "partial": false,
+      "changes": 2,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "2 change(s)"
+    },
     {
       "at": "2026-11-04T06:18:03.666Z",
       "ok": true,
@@ -138,14 +164,14 @@
       "name": "Cruise Ship Simulator",
       "updated": "2026-11-04T00:37:02.488Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6318643,
-      "playing": 19,
-      "favorites": 35506,
+      "visits": 6325041,
+      "playing": 25,
+      "favorites": 35524,
       "maxPlayers": 15
     },
     "test": {
       "name": "Project 2026 Testing Server",
-      "updated": "2026-10-20T21:19:10.187Z",
+      "updated": "2026-11-05T00:11:12.885Z",
       "created": "2025-12-07T01:27:35.247Z",
       "visits": 48,
       "playing": 0,
@@ -154,7 +180,7 @@
     },
     "build": {
       "name": "P26 Building Systems Development",
-      "updated": "2026-11-02T01:28:02.161Z",
+      "updated": "2026-11-05T00:11:09.284Z",
       "created": "2026-08-28T14:34:24.322Z",
       "visits": 24,
       "playing": 0,
@@ -162,12 +188,12 @@
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9668,
+      "up": 9672,
       "down": 2817
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46542,
+      "members": 46555,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -288,6 +314,13 @@
       "playing": 19,
       "favorites": 35506,
       "members": 46542
+    },
+    {
+      "at": "2026-11-05T06:43:26.079Z",
+      "visits": 6325041,
+      "playing": 25,
+      "favorites": 35524,
+      "members": 46555
     }
   ]
 }
