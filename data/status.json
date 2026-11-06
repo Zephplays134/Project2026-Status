@@ -318,6 +318,15 @@
       "title": "P26 Building Systems Development updated",
       "text": "Roblox now shows P26 Building Systems Development as last updated at 00:11 UTC on 5 Nov 2026 (previous check: 2 Nov 2026).",
       "source": "buildplace"
+    },
+    {
+      "date": "2026-11-06",
+      "added": "2026-11-06T06:41:01.631Z",
+      "type": "game",
+      "auto": true,
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 03:52 UTC on 6 Nov 2026 (previous check: 4 Nov 2026).",
+      "source": "css"
     }
   ],
   "stats": {
@@ -325,16 +334,16 @@
     "placeId": 17234598656,
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
-    "readDate": "2026-11-05",
-    "visits": 6325041,
-    "favorites": 35524,
-    "playing": 25,
-    "upVotes": 9672,
-    "downVotes": 2817,
+    "readDate": "2026-11-06",
+    "visits": 6331622,
+    "favorites": 35539,
+    "playing": 19,
+    "upVotes": 9676,
+    "downVotes": 2818,
     "maxPlayers": 15,
     "created": "2024-04-21",
-    "updated": "2026-11-04",
-    "groupMembers": 46555,
+    "updated": "2026-11-06",
+    "groupMembers": 46567,
     "testUpdated": "2026-11-05",
     "buildUpdated": "2026-11-05"
   },
