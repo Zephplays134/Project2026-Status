@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-11-06T06:41:01.631Z",
+  "lastRun": "2026-11-07T05:56:56.707Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-11-06T06:41:01.631Z",
+  "lastCommittedRun": "2026-11-07T05:56:56.707Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-11-05T00:11:12.885Z",
     "buildUpdated": "2026-11-05T00:11:09.284Z",
-    "cssUpdated": "2026-11-06T03:52:39.439Z",
-    "cssVisits": 6331622,
-    "cssPlaying": 19,
-    "cssFavorites": 35539,
-    "groupMembers": 46567,
+    "cssUpdated": "2026-11-06T23:25:02.91Z",
+    "cssVisits": 6343436,
+    "cssPlaying": 51,
+    "cssFavorites": 35566,
+    "groupMembers": 46589,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -28,6 +28,22 @@
   },
   "attention": [],
   "changes": [
+    {
+      "at": "2026-11-07T05:56:56.707Z",
+      "kind": "place-updated",
+      "type": "game",
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 23:25 UTC on 6 Nov 2026 (previous check: 6 Nov 2026).",
+      "source": "css"
+    },
+    {
+      "at": "2026-11-07T05:56:56.707Z",
+      "kind": "place-renamed",
+      "type": "evidence",
+      "title": "Cruise Ship Simulator renamed",
+      "text": "The place's name changed from “Cruise Ship Simulator” to “[SEASIDE + NEW PORT!] Cruise Ship Simulator”.",
+      "source": "css"
+    },
     {
       "at": "2026-11-06T06:41:01.631Z",
       "kind": "place-updated",
@@ -86,6 +102,16 @@
     }
   ],
   "runs": [
+    {
+      "at": "2026-11-07T05:56:56.707Z",
+      "ok": true,
+      "partial": false,
+      "changes": 2,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "2 change(s)"
+    },
     {
       "at": "2026-11-06T06:41:01.631Z",
       "ok": true,
@@ -179,12 +205,12 @@
   ],
   "values": {
     "css": {
-      "name": "Cruise Ship Simulator",
-      "updated": "2026-11-06T03:52:39.439Z",
+      "name": "[SEASIDE + NEW PORT!] Cruise Ship Simulator",
+      "updated": "2026-11-06T23:25:02.91Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6331622,
-      "playing": 19,
-      "favorites": 35539,
+      "visits": 6343436,
+      "playing": 51,
+      "favorites": 35566,
       "maxPlayers": 15
     },
     "test": {
@@ -206,12 +232,12 @@
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9676,
-      "down": 2818
+      "up": 9681,
+      "down": 2822
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46567,
+      "members": 46589,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -246,10 +272,10 @@
       },
       {
         "id": 5897329101,
-        "name": "Cruise Ship Simulator",
+        "name": "[SEASIDE + NEW PORT!] Cruise Ship Simulator",
         "placeId": 17234598656,
         "created": "2024-04-21T05:03:47.933Z",
-        "updated": "2026-10-20T14:16:32.307Z"
+        "updated": "2026-11-06T23:16:17.889Z"
       }
     ],
     "devGames": [
@@ -346,6 +372,13 @@
       "playing": 19,
       "favorites": 35539,
       "members": 46567
+    },
+    {
+      "at": "2026-11-07T05:56:56.707Z",
+      "visits": 6343436,
+      "playing": 51,
+      "favorites": 35566,
+      "members": 46589
     }
   ]
 }
