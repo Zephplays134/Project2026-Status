@@ -345,6 +345,24 @@
       "title": "Cruise Ship Simulator renamed",
       "text": "The place's name changed from “Cruise Ship Simulator” to “[SEASIDE + NEW PORT!] Cruise Ship Simulator”.",
       "source": "css"
+    },
+    {
+      "date": "2026-11-18",
+      "added": "2026-11-18T20:29:15.792Z",
+      "type": "game",
+      "auto": true,
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 13:39 UTC on 18 Nov 2026 (previous check: 6 Nov 2026).",
+      "source": "css"
+    },
+    {
+      "date": "2026-11-18",
+      "added": "2026-11-18T20:29:15.792Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Cruise Ship Simulator renamed",
+      "text": "The place's name changed from “[SEASIDE + NEW PORT!] Cruise Ship Simulator” to “Cruise Ship Simulator”.",
+      "source": "css"
     }
   ],
   "stats": {
@@ -352,16 +370,16 @@
     "placeId": 17234598656,
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
-    "readDate": "2026-11-17",
-    "visits": 6434483,
-    "favorites": 35806,
-    "playing": 24,
-    "upVotes": 9737,
-    "downVotes": 2833,
+    "readDate": "2026-11-18",
+    "visits": 6442373,
+    "favorites": 35830,
+    "playing": 53,
+    "upVotes": 9742,
+    "downVotes": 2837,
     "maxPlayers": 15,
     "created": "2024-04-21",
-    "updated": "2026-11-06",
-    "groupMembers": 46725,
+    "updated": "2026-11-18",
+    "groupMembers": 46736,
     "testUpdated": "2026-11-05",
     "buildUpdated": "2026-11-05"
   },
