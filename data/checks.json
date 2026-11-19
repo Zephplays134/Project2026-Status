@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "about": "Written by scripts/check.mjs (GitHub Actions, every 6 hours). Watched values, what changed, attention flags. The three headline answers are never changed automatically.",
-  "lastRun": "2026-11-18T20:29:15.792Z",
+  "lastRun": "2026-11-19T20:33:51.670Z",
   "lastRunOk": true,
-  "lastCommittedRun": "2026-11-18T20:29:15.792Z",
+  "lastCommittedRun": "2026-11-19T20:33:51.670Z",
   "schedule": "every 6 hours (cron 17 */6 * * *, UTC) + manual runs",
   "watched": {
     "testUpdated": "2026-11-05T00:11:12.885Z",
     "buildUpdated": "2026-11-05T00:11:09.284Z",
     "cssUpdated": "2026-11-18T13:39:46.204Z",
-    "cssVisits": 6442373,
-    "cssPlaying": 53,
-    "cssFavorites": 35830,
-    "groupMembers": 46736,
+    "cssVisits": 6447362,
+    "cssPlaying": 51,
+    "cssFavorites": 35841,
+    "groupMembers": 46741,
     "devGroupMembers": 33,
     "p26Listing": "-Project 2026 (2026) — To be announced.",
     "devGroupWip": [
@@ -118,6 +118,16 @@
     }
   ],
   "runs": [
+    {
+      "at": "2026-11-19T20:33:51.670Z",
+      "ok": true,
+      "partial": false,
+      "changes": 0,
+      "errors": [],
+      "via": "schedule",
+      "committed": true,
+      "reason": "daily refresh"
+    },
     {
       "at": "2026-11-18T20:29:15.792Z",
       "ok": true,
@@ -324,9 +334,9 @@
       "name": "Cruise Ship Simulator",
       "updated": "2026-11-18T13:39:46.204Z",
       "created": "2024-04-21T05:03:47.783Z",
-      "visits": 6442373,
-      "playing": 53,
-      "favorites": 35830,
+      "visits": 6447362,
+      "playing": 51,
+      "favorites": 35841,
       "maxPlayers": 15
     },
     "test": {
@@ -348,12 +358,12 @@
       "maxPlayers": 50
     },
     "cssVotes": {
-      "up": 9742,
+      "up": 9743,
       "down": 2837
     },
     "mainGroup": {
       "name": "Tableboard Studios",
-      "members": 46736,
+      "members": 46741,
       "description": "--------------------------------------------------------------------\nHere at Tableboard Studios, we create enjoyable maritime games you may enjoy for countless hours and give you a memorable experience.\n--------------------------------------------------------------------\nCurrent Games: \n-Cruise Ship Simulator (2025)\nhttps://www.roblox.com/games/17234598656/Cruise-Ship-Simulator\n\n-Project 2026 (2026)\nTo be announced.\n--------------------------------------------------------------------\nDiscontinued Games: \n-Cruise Line Simulator: A New Era\nhttps://www.roblox.com/games/11955907947/Cruise-Line-Simulator-A-New-Era\n\n-Cruise Line Simulator: Classic\nhttps://www.roblox.com/games/6834929523/Cruise-Line-Simulator",
       "shout": null,
       "p26": "-Project 2026 (2026) — To be announced."
@@ -565,6 +575,13 @@
       "playing": 53,
       "favorites": 35830,
       "members": 46736
+    },
+    {
+      "at": "2026-11-19T20:33:51.670Z",
+      "visits": 6447362,
+      "playing": 51,
+      "favorites": 35841,
+      "members": 46741
     }
   ]
 }
