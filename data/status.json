@@ -363,6 +363,15 @@
       "title": "Cruise Ship Simulator renamed",
       "text": "The place's name changed from “[SEASIDE + NEW PORT!] Cruise Ship Simulator” to “Cruise Ship Simulator”.",
       "source": "css"
+    },
+    {
+      "date": "2026-11-25",
+      "added": "2026-11-25T21:39:54.536Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Project 2026 Testing Server updated",
+      "text": "Roblox now shows Project 2026 Testing Server as last updated at 15:51 UTC on 25 Nov 2026 (previous check: 5 Nov 2026).",
+      "source": "testserver"
     }
   ],
   "stats": {
@@ -371,16 +380,16 @@
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
     "readDate": "2026-11-25",
-    "visits": 6484056,
-    "favorites": 35920,
-    "playing": 21,
+    "visits": 6487721,
+    "favorites": 35928,
+    "playing": 68,
     "upVotes": 9771,
     "downVotes": 2848,
     "maxPlayers": 15,
     "created": "2024-04-21",
     "updated": "2026-11-18",
-    "groupMembers": 46806,
-    "testUpdated": "2026-11-05",
+    "groupMembers": 46807,
+    "testUpdated": "2026-11-25",
     "buildUpdated": "2026-11-05"
   },
   "sources": [
