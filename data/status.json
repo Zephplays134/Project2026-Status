@@ -390,6 +390,33 @@
       "title": "Cruise Ship Simulator renamed",
       "text": "The place's name changed from “Cruise Ship Simulator” to “[SALE!] Cruise Ship Simulator”.",
       "source": "css"
+    },
+    {
+      "date": "2026-11-27",
+      "added": "2026-11-27T21:14:42.078Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Project 2026 Testing Server updated",
+      "text": "Roblox now shows Project 2026 Testing Server as last updated at 17:11 UTC on 27 Nov 2026 (previous check: 25 Nov 2026).",
+      "source": "testserver"
+    },
+    {
+      "date": "2026-11-27",
+      "added": "2026-11-27T21:14:42.078Z",
+      "type": "game",
+      "auto": true,
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 19:28 UTC on 27 Nov 2026 (previous check: 27 Nov 2026).",
+      "source": "css"
+    },
+    {
+      "date": "2026-11-27",
+      "added": "2026-11-27T21:14:42.078Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Cruise Ship Simulator renamed",
+      "text": "The place's name changed from “[SALE!] Cruise Ship Simulator” to “[🦃SALE!] Cruise Ship Simulator”.",
+      "source": "css"
     }
   ],
   "stats": {
@@ -398,16 +425,16 @@
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
     "readDate": "2026-11-27",
-    "visits": 6496021,
-    "favorites": 35940,
-    "playing": 19,
-    "upVotes": 9778,
-    "downVotes": 2851,
+    "visits": 6500230,
+    "favorites": 35945,
+    "playing": 72,
+    "upVotes": 9783,
+    "downVotes": 2854,
     "maxPlayers": 15,
     "created": "2024-04-21",
     "updated": "2026-11-27",
-    "groupMembers": 46819,
-    "testUpdated": "2026-11-25",
+    "groupMembers": 46830,
+    "testUpdated": "2026-11-27",
     "buildUpdated": "2026-11-05"
   },
   "sources": [
