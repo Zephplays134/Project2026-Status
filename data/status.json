@@ -372,6 +372,24 @@
       "title": "Project 2026 Testing Server updated",
       "text": "Roblox now shows Project 2026 Testing Server as last updated at 15:51 UTC on 25 Nov 2026 (previous check: 5 Nov 2026).",
       "source": "testserver"
+    },
+    {
+      "date": "2026-11-27",
+      "added": "2026-11-27T08:27:25.150Z",
+      "type": "game",
+      "auto": true,
+      "title": "Cruise Ship Simulator updated",
+      "text": "Roblox now shows Cruise Ship Simulator as last updated at 04:17 UTC on 27 Nov 2026 (previous check: 18 Nov 2026).",
+      "source": "css"
+    },
+    {
+      "date": "2026-11-27",
+      "added": "2026-11-27T08:27:25.150Z",
+      "type": "evidence",
+      "auto": true,
+      "title": "Cruise Ship Simulator renamed",
+      "text": "The place's name changed from “Cruise Ship Simulator” to “[SALE!] Cruise Ship Simulator”.",
+      "source": "css"
     }
   ],
   "stats": {
@@ -379,16 +397,16 @@
     "placeId": 17234598656,
     "testUniverseId": 9312735138,
     "buildUniverseId": 10764157170,
-    "readDate": "2026-11-25",
-    "visits": 6487721,
-    "favorites": 35928,
-    "playing": 68,
-    "upVotes": 9771,
-    "downVotes": 2848,
+    "readDate": "2026-11-27",
+    "visits": 6496021,
+    "favorites": 35940,
+    "playing": 19,
+    "upVotes": 9778,
+    "downVotes": 2851,
     "maxPlayers": 15,
     "created": "2024-04-21",
-    "updated": "2026-11-18",
-    "groupMembers": 46807,
+    "updated": "2026-11-27",
+    "groupMembers": 46819,
     "testUpdated": "2026-11-25",
     "buildUpdated": "2026-11-05"
   },
